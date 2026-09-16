@@ -414,3 +414,11 @@ i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brand
 }
 @media (max-width: 575.98px) { .ez-co__list { grid-template-columns: 1fr; } .ez-co__list li, .ez-co__list li + li { padding-left: 0; border-left: 0; } .ez-co__panel { border-radius: 26px; } }
 .ez-accent { color: var(--ez-primary); }
+.ezh4__mount { position: absolute; inset: 0; z-index: 1; }
+.ezh4__hint { z-index: 3; }
+
+/* H2H proportions: compact tagline, tall canvas */
+.ezh4 { height: auto; min-height: calc(100vh + 30px); padding-top: 120px; }
+.ezh4__title { font-size: clamp(32px, 3.6vw, 60px); }
+.ezh4__canvas { min-height: max(520px, 68vh); }
+@media (max-width: 991.98px) { .ezh4__canvas { height: auto; min-height: 460px; } }
