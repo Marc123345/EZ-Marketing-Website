@@ -204,7 +204,7 @@ export const about = {
   ],
   team: [
     { name: 'Ezra', title: 'Founder & CEO', photo: '/assets/images/team/ezra.jpg' },
-    { name: 'Marc Friedman', title: 'Website Designer & Head of Sales, RoofCoat Leads', photo: '/assets/images/team/marc-friedman.jpg' },
+    { name: 'Marc Friedman', title: 'Head of Sales', photo: '/assets/images/team/marc-friedman.jpg' },
     { name: 'Dani Twillo', title: 'Head of Creative', photo: '/assets/images/team/dani-twillo.jpg' },
     { name: 'Yael Rubinson', title: 'Creative Director', photo: '/assets/images/team/yael-rubinson.jpg' },
   ],
