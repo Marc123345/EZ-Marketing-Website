@@ -362,3 +362,12 @@ i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brand
 .plh__campaign span::before { color: #fff; }
 .plh-btn__label, .plh-btn__arrow { box-shadow: none; }
 @media (max-width: 991.98px) { .plh { background-image: none; background-color: var(--ez-bg); } }
+
+/* ---------- Loader: EZ logo animation ---------- */
+.ez-loader { position: fixed; inset: 0; z-index: 999999; display: grid; place-items: center; background: #05090d; transition: opacity .35s ease, visibility .35s; }
+.ez-loader video { width: 100%; height: 100%; object-fit: cover; }
+.ez-loader.is-quick video { display: none; }
+.ez-loader.is-quick { background: var(--ez-bg); }
+.ez-loader.is-done { opacity: 0; visibility: hidden; }
+.ez-loader.is-quick @media (max-aspect-ratio: 1/1) { .ez-loader video { object-fit: contain; } }
+html.ez-loading, html.ez-loading body { overflow: hidden; }

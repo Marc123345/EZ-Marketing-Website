@@ -303,18 +303,10 @@ export function page({ path, title, description, ogImage = '/assets/images/ez/og
     head({ title, description, path, ogImage, schema }) +
     `<body class="${inner ? 'pl-inner' : 'pl-home'} ez">
   <div class="page-wrapper">
-    <div class="preloader is-loading">
-      <div class="preloader-inner">
-        <div class="preloader-ball-wrap">
-          <div class="preloader-ball-inner-wrap">
-            <div class="preloader-ball-inner"><div class="preloader-ball"></div></div>
-            <div class="preloader-ball-shadow"></div>
-          </div>
-          <div id="weave-anim" class="preloader-text">Loading...</div>
-        </div>
-      </div>
-      <div class="preloader-overlay"></div>
+    <div class="ez-loader" id="ez-loader" aria-hidden="true">
+      <video src="/assets/videos/ez-loader.mp4" poster="/assets/videos/ez-loader.jpg" muted playsinline preload="auto"></video>
     </div>
+    <script>try{if(sessionStorage.getItem('ez-loader-seen'))document.getElementById('ez-loader').classList.add('is-quick')}catch(e){}</script>
     <button id="back-top" class="back-to-top" aria-label="Back to top"><i class="fa-regular fa-arrow-up"></i></button>
     <div class="mouseCursor cursor-outer"></div>
     <div class="mouseCursor cursor-inner"></div>

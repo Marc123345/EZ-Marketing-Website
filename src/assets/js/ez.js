@@ -2,6 +2,36 @@
 (function () {
   'use strict';
 
+  // ---------- Loader: the EZ logo animation ----------
+  // First page of a visit plays the whole animation, then the site appears; after that pages open with a
+  // quick fade so browsing doesn't replay 10 seconds of video.
+  (function loader() {
+    var el = document.getElementById('ez-loader');
+    if (!el) return;
+    var video = el.querySelector('video');
+    var done = false;
+    function hide() {
+      if (done) return;
+      done = true;
+      try { sessionStorage.setItem('ez-loader-seen', '1'); } catch (e) {}
+      el.classList.add('is-done');
+      document.documentElement.classList.remove('ez-loading');
+      setTimeout(function () { el.remove(); }, 400);
+    }
+    document.documentElement.classList.add('ez-loading');
+    var quick = el.classList.contains('is-quick') || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (quick) {
+      if (document.readyState === 'complete') setTimeout(hide, 150);
+      else window.addEventListener('load', function () { setTimeout(hide, 150); });
+      return;
+    }
+    video.addEventListener('ended', hide);
+    video.addEventListener('error', hide);
+    var p = video.play();
+    if (p && p.catch) p.catch(hide);
+    setTimeout(hide, 11000); // never block the page if the video stalls
+  })();
+
   var LABELS = { roofing: 'Roof coating strategy call', paving: 'Paving strategy call' };
 
   // A widget is either one iframe (site-wide booking link) or a trade chooser + two calendars.
