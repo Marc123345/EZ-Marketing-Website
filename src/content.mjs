@@ -197,6 +197,20 @@ export const about = {
     'That is on purpose. Generic agencies sell activity: posts, reports and retainers. The contractors we work with want one thing, the phone ringing with real jobs in their territory. Knowing two trades inside out is how we deliver that.',
     'We built RoofCoat Leads and Paving Leads as dedicated systems for each trade, with their own campaigns, their own sites and their own proof. Over 100 contractors across the US have run on them.',
   ],
+  creative: {
+    title: ['The Creative Team', 'Behind Every Ad'],
+    text: 'Dani Twillo, our Head of Creative, and Yael Rubinson, our Creative Director, run creative for RoofCoat Leads and Paving Leads. Every ad a contractor runs with us comes through their team.',
+    points: [
+      { title: 'Built from real job sites', text: 'Short videos and photos of real coating and paving work, the way property owners actually see it.' },
+      { title: 'Made for each trade', text: 'Roof coating ads speak to building owners with aging roofs. Paving ads speak to homeowners and property managers with worn asphalt.' },
+      { title: 'Refreshed through the season', text: 'Creative is tested and updated as campaigns run, so ads stay fresh while the leads keep coming.' },
+    ],
+    people: [
+      { name: 'Dani Twillo', title: 'Head of Creative' },
+      { name: 'Yael Rubinson', title: 'Creative Director' },
+    ],
+    photo: '/assets/images/team/creative-team.jpg',
+  },
   team: [
     { name: 'Ezra', title: 'Founder & CEO', photo: '/assets/images/team/ezra.jpg' },
     { name: 'Marc Friedman', title: 'Head of Sales', photo: '/assets/images/team/marc-friedman.jpg' },

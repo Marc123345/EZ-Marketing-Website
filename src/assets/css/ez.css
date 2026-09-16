@@ -373,3 +373,24 @@ i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brand
 .ez-meta-kicker img { height: 17px; width: auto; filter: brightness(0) invert(1); }
 .ez-logo img { width: 60px; height: 60px; }
 .main-header.header-1.fixed-header .ez-logo img { width: 50px; height: 50px; }
+
+/* Who We Are: one image card per company */
+.ez-who-cards { margin: 34px 0 36px; text-align: left; }
+.ez-who-card { display: block; height: 100%; border-radius: 26px; overflow: hidden; background: var(--ez-bg); border: 1px solid var(--ez-border); color: #fff; transition: border-color .3s, transform .3s, box-shadow .3s; }
+.ez-who-card:hover { border-color: var(--ez-primary); transform: translateY(-4px); box-shadow: var(--ez-glow); color: #fff; }
+.ez-who-card__img { display: block; overflow: hidden; }
+.ez-who-card__img img { display: block; width: 100%; aspect-ratio: 1056 / 821; object-fit: cover; transition: transform .6s; }
+.ez-who-card:hover .ez-who-card__img img { transform: scale(1.04); }
+.ez-who-card__body { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 20px 24px; }
+.ez-who-card__label { color: var(--ez-muted); font-size: 15px; }
+.ez-who-card__label i { color: var(--ez-primary); margin-left: 6px; }
+
+/* Creative team */
+.ez-creative__photo { position: relative; border-radius: 30px; overflow: hidden; border: 1px solid var(--ez-border); box-shadow: 0 30px 70px rgba(0, 0, 0, .45); }
+.ez-creative__photo img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center 30%; }
+.ez-creative__names { position: absolute; left: 16px; right: 16px; bottom: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ez-creative__names span { padding: 12px 16px; border-radius: 16px; background: rgba(0, 24, 32, .82); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--ez-border); color: var(--ez-primary); font-size: 14px; }
+.ez-creative__names strong { display: block; color: #fff; font-size: 17px; }
+.ez-creative .ez-checks li { color: var(--ez-muted); font-size: 16px; }
+.ez-creative .ez-checks strong { color: #fff; }
+@media (max-width: 575.98px) { .ez-creative__names { position: static; grid-template-columns: 1fr; padding: 12px; background: var(--ez-bg-light); } }

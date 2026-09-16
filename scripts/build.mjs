@@ -266,6 +266,29 @@ function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, 
 </section>`;
 }
 
+function creativeSection() {
+  const c = C.about.creative;
+  return `
+<section class="section-padding ez-creative">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 wow fadeInUp">
+        <div class="ez-creative__photo">
+          <img src="${c.photo}" alt="${esc(c.people.map((p) => p.name).join(' and '))}, EZ Marketing creative team" loading="lazy">
+          <div class="ez-creative__names">${c.people.map((p) => `<span><strong>${esc(p.name)}</strong>${esc(p.title)}</span>`).join('')}</div>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
+        ${subTitle('Creative')}
+        ${secTitle(c.title[0], c.title[1])}
+        <p class="ez-lead-p">${esc(c.text)}</p>
+        <ul class="ez-checks">${c.points.map((pt) => `<li><i class="fa-solid fa-circle-check"></i><span><strong>${esc(pt.title)}.</strong> ${esc(pt.text)}</span></li>`).join('')}</ul>
+      </div>
+    </div>
+  </div>
+</section>`;
+}
+
 function teamGrid() {
   return `
     <div class="row g-4 justify-content-center">
@@ -344,9 +367,19 @@ ${section(
         ${secTitle('One Agency.', 'Two Trades.')}
         <p class="ez-lead-p">${esc(C.about.story[0])}</p>
         <p class="ez-lead-p">We run our Meta Ads through two companies, one for each trade. Each has its own campaigns, its own proof and its own website, so a coating roofer only ever hears about roofing and a paving crew only ever hears about paving.</p>
-        <div class="ez-org">
-          <a class="ez-org__node" href="#roofcoat-leads">${roofcoatMark()}<span>Roof coating contractors</span></a>
-          <a class="ez-org__node" href="#paving-leads">${pavingMark()}<span>Paving contractors</span></a>
+        <div class="row g-4 ez-who-cards">
+          <div class="col-md-6">
+            <a class="ez-who-card" href="#roofcoat-leads">
+              <span class="ez-who-card__img"><img src="${img('ez/who-roofing.jpg')}" alt="RoofCoat Leads: Meta Ads for roof coating contractors" loading="lazy"></span>
+              <span class="ez-who-card__body">${roofcoatMark()}<span class="ez-who-card__label">Roof coating contractors <i class="fa-solid fa-arrow-down"></i></span></span>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="ez-who-card" href="#paving-leads">
+              <span class="ez-who-card__img"><img src="${img('ez/who-paving.jpg')}" alt="Paving Leads: Meta Ads for paving contractors" loading="lazy"></span>
+              <span class="ez-who-card__body">${pavingMark()}<span class="ez-who-card__label">Paving contractors <i class="fa-solid fa-arrow-down"></i></span></span>
+            </a>
+          </div>
         </div>
         ${btn('Meet our leadership', { href: '/about#team' })}
       </div>
@@ -419,6 +452,8 @@ ${section(`
     ${teamGrid()}
     <div class="text-center mt-5">${btn('About EZ Marketing', { href: '/about' })}</div>`)}
 
+${creativeSection()}
+
 ${faqSection(C.homeFaqs)}`,
 });
 
@@ -454,6 +489,8 @@ ${section(
     ${teamGrid()}`,
   { id: 'team', cls: 'ez-band' }
 )}
+
+${creativeSection()}
 
 ${section(
   `
