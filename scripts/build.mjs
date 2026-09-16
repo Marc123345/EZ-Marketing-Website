@@ -330,7 +330,6 @@ pages.push({
 
 ${videoSection([...C.roofing.videos, ...C.paving.videos], { sub: 'Testimonials', title: ['Real Contractors.', 'Real Jobs.'], intro: 'Coating roofers and paving contractors running jobs from our campaigns.' })}
 
-${writtenSlider(C.paving.written, { sub: 'In Writing', title: ['What Contractors', 'Say About Us'] })}
 
 ${section(
   `
@@ -450,18 +449,6 @@ ${pageTitle('About', img('paving/team-computers-night-office.jpg'), { h1: 'We on
     </div>
   </div>
 </section>
-
-${section(
-  `
-    <figure class="ez-bigquote wow fadeInUp">
-      <img src="${img('icons/quote-icon-2-1.png')}" alt="">
-      <blockquote>&ldquo;${esc(C.about.quote.text)}&rdquo;</blockquote>
-      <figcaption><strong>${esc(C.about.quote.name)}</strong> ${esc(C.about.quote.company)}</figcaption>
-    </figure>`,
-  { cls: 'pt-0' }
-)}
-
-${section(`${heading('Why Two Trades', ['Narrow on Purpose.', 'Better for You.'])}${cardGrid(C.about.why)}`, { cls: 'ez-band' })}
 
 ${section(
   `

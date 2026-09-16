@@ -197,16 +197,10 @@ export const about = {
     'That is on purpose. Generic agencies sell activity: posts, reports and retainers. The contractors we work with want one thing, the phone ringing with real jobs in their territory. Knowing two trades inside out is how we deliver that.',
     'We built RoofCoat Leads and Paving Leads as dedicated systems for each trade, with their own campaigns, their own sites and their own proof. Over 100 contractors across the US have run on them.',
   ],
-  why: [
-    { title: 'We know the job', text: 'Silicone vs. acrylic. Sealcoating vs. chip seal. We write ads that sound like the trade, because we only work in two.' },
-    { title: 'We know the buyer', text: 'An owner-operator with a crew, a truck and a territory, burned by shared leads. We build everything around what he needs.' },
-    { title: 'We know what works', text: 'Every campaign in your trade teaches us something. You get the playbook, not a test run on your budget.' },
-  ],
   team: [
     { name: 'Ezra', title: 'Founder & CEO', photo: '/assets/images/team/ezra.jpg' },
     { name: 'Marc Friedman', title: 'Head of Sales', photo: '/assets/images/team/marc-friedman.jpg' },
     { name: 'Dani Twillo', title: 'Head of Creative', photo: '/assets/images/team/dani-twillo.jpg' },
     { name: 'Yael Rubinson', title: 'Creative Director', photo: '/assets/images/team/yael-rubinson.jpg' },
   ],
-  quote: { text: "Ezra's team really understands our business—they're not just general marketers. They get the grit.", name: 'Yankee', company: 'Pave n Save' },
 };
