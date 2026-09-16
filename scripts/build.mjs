@@ -303,8 +303,8 @@ pages.push({
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6">
-        <span class="ez-kicker">Facebook Ads for roof coating &amp; paving contractors</span>
-        <h1 class="ezh3__title">Facebook Ads for roofers and pavers. <span>Real jobs in your area. Every lead is yours alone.</span></h1>
+        <span class="ez-kicker ez-meta-kicker"><img src="${img('ez/meta-logo.png')}" alt="Meta" width="72" height="17"> Ads agency for roofers &amp; pavers</span>
+        <h1 class="ezh3__title">Meta Ads for roofers and pavers. <span>Every lead is yours.</span></h1>
         <p class="ez-hero-lead">One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
         <div class="ez-hero-actions">
           <button type="button" class="plh-btn" data-booking="">
@@ -313,7 +313,6 @@ pages.push({
             <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
           </button>
         </div>
-        <ul class="ez-support">${C.supportLines.map((l) => `<li><i class="fa-solid fa-check"></i>${esc(l)}</li>`).join('')}</ul>
       </div>
       <div class="col-lg-6">
         <div class="ezh3__stage">
@@ -344,7 +343,7 @@ ${section(
         ${subTitle('Who We Are')}
         ${secTitle('One Agency.', 'Two Trades.')}
         <p class="ez-lead-p">${esc(C.about.story[0])}</p>
-        <p class="ez-lead-p">We run our Facebook Ads through two companies, one for each trade. Each has its own campaigns, its own proof and its own website, so a coating roofer only ever hears about roofing and a paving crew only ever hears about paving.</p>
+        <p class="ez-lead-p">We run our Meta Ads through two companies, one for each trade. Each has its own campaigns, its own proof and its own website, so a coating roofer only ever hears about roofing and a paving crew only ever hears about paving.</p>
         <div class="ez-org">
           <a class="ez-org__node" href="#roofcoat-leads">${roofcoatMark()}<span>Roof coating contractors</span></a>
           <a class="ez-org__node" href="#paving-leads">${pavingMark()}<span>Paving contractors</span></a>
@@ -360,7 +359,7 @@ ${companySection({
   mark: roofcoatMark(),
   kicker: 'Company 01 &middot; For roof coating contractors',
   title: 'RoofCoat Leads: <span class="ez-accent">exclusive roof coating leads in your area</span>',
-  intro: 'RoofCoat Leads runs Facebook Ads for roofing companies doing silicone, acrylic, TPO and metal restoration, mostly commercial and industrial. Leads are screened for property type, timeline and budget, then sent to the contractor by SMS and email in real time.',
+  intro: 'RoofCoat Leads runs Meta Ads for roofing companies doing silicone, acrylic, TPO and metal restoration, mostly commercial and industrial. Leads are screened for property type, timeline and budget, then sent to the contractor by SMS and email in real time.',
   photo: img('roof/crew-full-service.jpg'),
   photoAlt: 'Roof coating crew restoring a commercial roof',
   who: 'Coating roofers with 1 to 50 employees, tired of shared leads sold to five roofers.',
@@ -376,7 +375,7 @@ ${companySection({
   mark: pavingMark(),
   kicker: 'Company 02 &middot; For paving contractors',
   title: 'Paving Leads: <span class="ez-accent">exclusive paving leads booked on your calendar</span>',
-  intro: 'Paving Leads runs Facebook Ads for asphalt, sealcoating and chip seal crews, from residential driveways to commercial lots. Contractors get booked estimates with full job info, and no more door knocking.',
+  intro: 'Paving Leads runs Meta Ads for asphalt, sealcoating and chip seal crews, from residential driveways to commercial lots. Contractors get booked estimates with full job info, and no more door knocking.',
   photo: img('paving/sealcoat-crack-repair-crew.jpg'),
   photoAlt: 'Paving crew sealing asphalt',
   who: 'Paving crews with 1 to 50 employees, tired of door knocking and pay-per-lead junk.',
@@ -412,7 +411,7 @@ ${companySection({
   </div>
 </section>
 
-${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You Run the Crew.'], intro: 'The same Facebook Ads system runs behind RoofCoat Leads and Paving Leads.' })}
+${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You Run the Crew.'], intro: 'The same Meta Ads system runs behind RoofCoat Leads and Paving Leads.' })}
 
 
 ${section(`
@@ -428,7 +427,7 @@ pages.push({
   file: 'about.html',
   path: '/about',
   title: 'About',
-  description: 'EZ Marketing is a West Palm Beach Facebook Ads agency that only works with roof coating contractors and paving contractors. Meet the team.',
+  description: 'EZ Marketing is a West Palm Beach Meta Ads agency that only works with roof coating contractors and paving contractors. Meet the team.',
   body: `
 ${pageTitle('About', img('paving/team-computers-night-office.jpg'), { h1: 'We only work with roof coating and paving. <span>That is the point.</span>' })}
 <section class="about-section section-padding">
@@ -441,7 +440,7 @@ ${pageTitle('About', img('paving/team-computers-night-office.jpg'), { h1: 'We on
       </div>
       <div class="col-lg-7">
         ${subTitle('Who We Are')}
-        ${secTitle('A Facebook Ads Agency', 'for Two Trades')}
+        ${secTitle('A Meta Ads Agency', 'for Two Trades')}
         ${C.about.story.map((p) => `<p class="ez-lead-p wow fadeInUp">${esc(p)}</p>`).join('')}
         ${bookBtn(CTA)}
       </div>
@@ -472,7 +471,7 @@ pages.push({
   file: 'results.html',
   path: '/results',
   title: 'Results',
-  description: 'Video testimonials from roof coating and paving contractors running jobs from EZ Marketing Facebook Ads campaigns.',
+  description: 'Video testimonials from roof coating and paving contractors running jobs from EZ Marketing Meta Ads campaigns.',
   body: `
 ${pageTitle('Results', '', { h1: 'Results: contractor testimonials' })}
 ${videoSection(C.roofing.videos, { sub: 'RoofCoat Leads', title: ['Roof Coating', 'Contractors'], id: 'roofing' })}
@@ -485,7 +484,7 @@ pages.push({
   file: 'contact.html',
   path: '/contact',
   title: 'Book a Free Strategy Call',
-  description: 'Book a free 30-minute strategy call with EZ Marketing. Facebook Ads for roof coating contractors and paving contractors.',
+  description: 'Book a free 30-minute strategy call with EZ Marketing. Meta Ads for roof coating contractors and paving contractors.',
   body: `
 ${pageTitle('Contact', img('paving/booked-calendar-phone-dark.jpg'), { h1: 'Book a free strategy call' })}
 <section class="contact-details pt-120 pb-80" id="book">

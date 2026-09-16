@@ -19,7 +19,7 @@ export const site = {
   roofcoatUrl: 'https://roofcoatleads.com',
   pavingUrl: 'https://pavinglead.com',
   description:
-    'EZ Marketing runs Facebook Ads for roof coating contractors and paving contractors. The ads bring in exclusive, pre-qualified leads in your service area.',
+    'EZ Marketing runs Meta Ads for roof coating contractors and paving contractors. The ads bring in exclusive, pre-qualified leads in your service area.',
 };
 
 export const nav = [
@@ -37,7 +37,7 @@ export const nav = [
 ];
 
 export const DISCLAIMER =
-  'EZ Marketing provides lead generation services through paid Facebook and Instagram Ad campaigns. ' +
+  'EZ Marketing provides lead generation services through paid Meta (Facebook and Instagram) ad campaigns. ' +
   'Results shown on this website, including lead volume, cost per acquisition and return on ad spend, ' +
   'reflect averages across our contractor network and are not guaranteed outcomes. ' +
   'Individual results vary based on geographic market, competition, ad budget, sales process, ' +
@@ -193,7 +193,7 @@ export const results = {
 // ---------- About ----------
 export const about = {
   story: [
-    'EZ Marketing is a Facebook Ads agency based in West Palm Beach, Florida. We work with two trades: roofing contractors who do coatings, and paving contractors. Nobody else.',
+    'EZ Marketing is a Meta Ads agency based in West Palm Beach, Florida. We work with two trades: roofing contractors who do coatings, and paving contractors. Nobody else.',
     'That is on purpose. Generic agencies sell activity: posts, reports and retainers. The contractors we work with want one thing, the phone ringing with real jobs in their territory. Knowing two trades inside out is how we deliver that.',
     'We built RoofCoat Leads and Paving Leads as dedicated systems for each trade, with their own campaigns, their own sites and their own proof. Over 100 contractors across the US have run on them.',
   ],

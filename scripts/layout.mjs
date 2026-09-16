@@ -46,7 +46,7 @@ export function disclaimer(text = DISCLAIMER, cls = '') {
 }
 
 export const logo = (cls = '') =>
-  `<a href="/" class="ez-logo ${cls}" aria-label="${site.name} home"><img src="${img('ez/logo.svg')}" width="52" height="52" alt=""><span>EZ <b>Marketing</b></span></a>`;
+  `<a href="/" class="ez-logo ${cls}" aria-label="${site.name} home"><img src="${img('ez/logo.svg')}" width="60" height="60" alt="EZ Marketing"></a>`;
 
 export const addressLine = () => [site.address.street, `${site.address.city}, ${site.address.region}`].filter(Boolean).join(', ');
 
@@ -81,7 +81,7 @@ export function bookingWidget(idPrefix, { trade = '' } = {}) {
 }
 
 function head({ title, description, path, ogImage, schema = [] }) {
-  const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Facebook Ads for Roof Coating & Paving Contractors`;
+  const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Meta Ads for Roof Coating & Paving Contractors`;
   const canonical = `${site.url}${path === '/' ? '' : path}`;
   const org = {
     '@context': 'https://schema.org',
@@ -93,7 +93,7 @@ function head({ title, description, path, ogImage, schema = [] }) {
     description: site.description,
     address: { '@type': 'PostalAddress', streetAddress: site.address.street, addressLocality: site.address.city, addressRegion: site.address.regionCode, addressCountry: 'US' },
     areaServed: { '@type': 'Country', name: 'United States' },
-    knowsAbout: ['Facebook Ads for roof coating contractors', 'Facebook Ads for paving contractors', 'Contractor lead generation'],
+    knowsAbout: ['Meta Ads for roof coating contractors', 'Meta Ads for paving contractors', 'Contractor lead generation'],
     subOrganization: [
       { '@type': 'Organization', name: 'RoofCoat Leads', url: site.roofcoatUrl },
       { '@type': 'Organization', name: 'Paving Leads', url: site.pavingUrl },
@@ -244,7 +244,7 @@ function footer() {
               <div class="pl-footer__grid ez-footer__grid">
                 <div class="pl-footer__brand">
                   ${logo('pl-footer__logo')}
-                  <p>The Facebook Ads agency for roofing contractors who do coatings and paving contractors. Exclusive, pre-qualified leads in your service area.</p>
+                  <p>The Meta Ads agency for roofing contractors who do coatings and paving contractors. Exclusive, pre-qualified leads in your service area.</p>
                   <ul class="pl-footer__trust">
                     <li><i class="fa-solid fa-location-dot"></i> ${esc(site.legalName)}<br>${esc(addressLine())}</li>
                     ${site.phone ? `<li><i class="fa-solid fa-phone"></i> <a href="tel:${site.phone.replace(/[^+\d]/g, '')}">${esc(site.phone)}</a></li>` : ''}
