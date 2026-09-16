@@ -420,3 +420,105 @@ i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brand
 .ez-loader.is-done { opacity: 0; visibility: hidden; }
 .ez-loader.is-quick @media (max-aspect-ratio: 1/1) { .ez-loader video { object-fit: contain; } }
 html.ez-loading, html.ez-loading body { overflow: hidden; }
+
+/* =====================================================================
+   Layout balance pass: one spacing rhythm, aligned panels, no overlaps
+   ===================================================================== */
+:root { --ez-gap: clamp(64px, 7vw, 110px); --ez-edge: clamp(12px, 2.5vw, 40px); }
+.section-padding { padding: var(--ez-gap) 0; }
+.ez-inner .section-padding:first-of-type { padding-top: 40px; }
+
+/* Panels share the same side inset and radius, with consistent space between them */
+.service-section.ez-panel, .ez-co__panel, .faq-inner-2, .work-process-inner-2 { margin-left: var(--ez-edge) !important; margin-right: var(--ez-edge) !important; border-radius: 32px; }
+.ez-panel + .ez-panel, .ez-co + .ez-co, .ez-panel + .ez-co, .ez-co + .work-process-section-2, .work-process-section-2 + .ez-panel { margin-top: 28px; }
+.ez-co { padding: 14px 0; }
+.ez-co + .ez-co { padding-top: 14px; }
+.ez-proof { margin-top: 0; padding: 56px 0 !important; }
+.pl-reels.section-padding { padding-bottom: calc(var(--ez-gap) * .6); }
+.ez-creative.section-padding { padding: var(--ez-gap) 0; }
+.faq-section-2 { margin-top: 28px; }
+.pl-footer { margin-top: var(--ez-gap); }
+
+/* Floating 3D template shapes: keep them in the margins, never over copy */
+.ez-co > .award-vec, .ez-co > .about-vec, .pl-reels .about-vec, .ez-creative .testi-vec,
+.work-process-section-2 .work-process-vec, .faq-section-2 .faq-vec, .faq-section-2 .faq-vec2,
+.about-section .about-shape-1, .about-section .about-shape-2, .award-section-2 .award-vec { pointer-events: none; }
+.ez-co > .award-vec, .ez-co > .about-vec { display: none; }
+.work-process-section-2 .work-process-vec { top: -70px !important; right: -40px !important; width: 180px; }
+.work-process-section-2 .work-process-vec img, .faq-section-2 .faq-vec img, .faq-section-2 .faq-vec2 img { width: 100%; height: auto; }
+.faq-section-2 .faq-vec { width: 150px; top: -60px !important; left: -20px !important; }
+.faq-section-2 .faq-vec2 { width: 140px; right: -20px !important; bottom: -40px !important; }
+.pl-reels .about-vec { right: -60px; top: 0; width: 200px; opacity: .45; }
+.pl-reels .about-vec img { width: 100%; }
+@media (max-width: 1199.98px) {
+  .work-process-section-2 .work-process-vec, .faq-section-2 .faq-vec, .faq-section-2 .faq-vec2, .pl-reels .about-vec, .ez-creative .testi-vec, .footer-section .footer-vec { display: none !important; }
+}
+
+/* Hero (Paving Leads layout) */
+.plh__content { max-width: min(31vw, 560px); }
+@media (max-width: 1199.98px) { .plh__content { max-width: 46vw; } }
+@media (max-width: 991.98px) {
+  .plh { padding-top: 120px; }
+  .plh__content { max-width: none !important; }
+  .plh__title { font-size: clamp(34px, 8.5vw, 52px); line-height: 1.08; }
+  .plh__icon-bx { max-width: 560px; }
+  .plh__mobile-art { width: 100%; margin: 36px 0 0; }
+}
+
+/* Company sections: same structure both sides, tighter */
+.ez-co__panel { padding: clamp(48px, 5vw, 80px) 0; }
+.ez-co__head { align-items: center; }
+.ez-co__photo { margin-top: 44px; }
+.ez-co__list { margin-top: 40px; }
+.ez-co__list li { padding-bottom: 4px; }
+@media (min-width: 992px) { .ez-co--alt .ez-co__head { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+.ez-co--alt .ez-co__intro { order: 0; }
+@media (max-width: 991.98px) {
+  .ez-co__stats { max-width: 560px; }
+  .ez-co__title { font-size: clamp(28px, 7vw, 40px); }
+}
+
+/* How It Works: 5 steps need room. 3 + 2 on laptops, 2 cols on tablets, 1 on phones */
+.ez-steps { row-gap: 24px; }
+@media (max-width: 1399.98px) { .ez-steps > .col { flex: 0 0 33.333%; max-width: 33.333%; } }
+@media (max-width: 991.98px) { .ez-steps > .col { flex: 0 0 50%; max-width: 50%; } }
+@media (max-width: 575.98px) { .ez-steps > .col { flex: 0 0 100%; max-width: 100%; } }
+.ez-steps { justify-content: center; }
+.working-block-two .inner-block { height: calc(100% - 50px); }
+
+/* Who We Are / leadership / paid media */
+.ez-who-cards { margin: 36px auto 32px; max-width: 1040px; }
+.ez-team--photo { height: 100%; }
+@media (max-width: 767.98px) {
+  .row > .col-md-6 > .ez-team--photo .ez-team__photo img { aspect-ratio: 1 / 1; object-position: center 18%; }
+}
+@media (max-width: 575.98px) {
+  .ez-panel .row.g-4 > .col-xl-3.col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  .ez-team__body { padding: 14px 14px 16px; }
+  .ez-team__body h4 { font-size: 17px; }
+  .ez-team__role { font-size: 13px; }
+}
+.ez-creative .row { align-items: center; }
+.ez-creative__photo img { aspect-ratio: 4 / 3; }
+
+/* About page */
+.ez-about-intro { max-width: 880px; margin: 0 auto; text-align: center; }
+.ez-about-intro .ez-lead-p { margin-left: auto; margin-right: auto; }
+.ez-about-intro .btn-style-one { margin-top: 12px; }
+.ez-about .about-shape-1, .ez-about .light-shape-1 { opacity: .5; }
+
+/* Inner pages: consistent top spacing under the fixed header */
+.ez-page-top { height: 96px; }
+.ez-page-top + section, .ez-page-top + .pl-reels { padding-top: 56px !important; }
+@media (max-width: 991.98px) { .ez-page-top { height: 80px; } }
+
+/* Footer CTA band balance */
+.pl-footer .footer-lets-talk { gap: 30px; }
+@media (max-width: 767.98px) { .pl-footer .footer-lets-talk .title { font-size: 34px; } }
+/* Paid media section: template testimonial-4 wrapper adds its own spacing */
+.ez-creative.tetsimonial-section-4 { margin: 0 !important; padding: var(--ez-gap) 0 !important; }
+.ez-creative .testi-vec, .ez-creative .testimonial-light { display: none !important; }
+/* 5 steps: three per row until wide screens */
+@media (max-width: 1599.98px) and (min-width: 992px) { .ez-steps > .col { flex: 0 0 33.333%; max-width: 33.333%; } }
+
+@media (max-width: 991.98px) { .ez-co__head, .ez-co--alt .ez-co__head { grid-template-columns: 1fr !important; } .ez-creative .ez-h2, .ez-creative .sec_title { font-size: clamp(30px, 7.5vw, 44px); } }

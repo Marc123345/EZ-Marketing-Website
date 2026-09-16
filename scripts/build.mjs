@@ -457,20 +457,15 @@ pages.push({
   description: 'EZ Marketing is a West Palm Beach Meta Ads agency that only works with roof coating contractors and paving contractors. Meet the team.',
   body: `
 ${pageTitle('About', img('paving/team-computers-night-office.jpg'), { h1: 'We only work with roof coating and paving. <span>That is the point.</span>' })}
-<section class="about-section section-padding">
+<section class="about-section section-padding ez-about">
   <div class="light-shape-1"><img src="${img('icons/about-light-1-1.png')}" alt=""></div>
   <div class="about-shape-1 tm-gsap-animate-circle"><img src="${img('icons/about-shape-1-1.png')}" alt=""></div>
   <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-5 wow fadeInUp">
-        <div class="ez-about-logo"><img src="${img('ez/logo.svg')}" alt="EZ Marketing logo"></div>
-      </div>
-      <div class="col-lg-7">
-        ${subTitle('Who We Are')}
-        ${secTitle('A Meta Ads Agency', 'for Two Trades')}
-        ${C.about.story.map((p) => `<p class="ez-lead-p wow fadeInUp">${esc(p)}</p>`).join('')}
-        ${bookBtn(CTA)}
-      </div>
+    <div class="ez-about-intro">
+      ${subTitle('Who We Are')}
+      ${secTitle('A Meta Ads Agency', 'for Two Trades')}
+      ${C.about.story.map((p) => `<p class="ez-lead-p wow fadeInUp">${esc(p)}</p>`).join('')}
+      ${bookBtn(CTA)}
     </div>
   </div>
 </section>
