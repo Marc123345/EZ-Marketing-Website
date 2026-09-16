@@ -246,35 +246,33 @@ function methodSteps(items, { sub = 'How It Works', title = ['The System Behind'
 }
 
 // One sub-company, explained on the home page and linked out to its own website.
-function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, get, stats, statsNote = '', quote, url, host, reverse = false }) {
+// Layout: patterned panel -> title + stats -> wide photo with testimonial -> four benefits.
+function companySection({ id, mark, kicker, title, intro, photo, photoAlt, get, stats, statsNote = '', quote, url, host, bg, reverse = false }) {
   return `
-<section class="section-padding ez-company ${reverse ? 'about-section' : 'award-section-2'}" id="${id}">
-  ${reverse ? decor.about1 : decor.award}
-  <div class="container">
-    <div class="row g-5 align-items-center${reverse ? ' flex-lg-row-reverse' : ''}">
-      <div class="col-lg-6 wow fadeInUp">
-        <div class="ez-company__photo">
-          <img src="${photo}" alt="${esc(photoAlt)}" loading="lazy">
-          <figure class="ez-company__quote">
-            <blockquote>&ldquo;${esc(quote.text)}&rdquo;</blockquote>
-            <figcaption><strong>${esc(quote.name)}</strong> ${esc(quote.company)}</figcaption>
-          </figure>
+<section class="ez-co${reverse ? ' ez-co--alt' : ''} award-section-2" id="${id}">
+  ${reverse ? decor.about2 : decor.award}
+  <div class="ez-co__panel bg-cover" style="background-image: url('${bg}');">
+    <div class="container">
+      <div class="ez-co__head">
+        <div class="ez-co__intro wow fadeInUp">
+          <div class="ez-co__mark">${mark}<span class="ez-co__kicker">${kicker}</span></div>
+          <h2 class="ez-co__title">${title}</h2>
+          <p>${intro}</p>
+          <a class="btn-style-one ez-co__visit" href="${url}" target="_blank" rel="noopener"><span class="btn-arrow-left"><img src="${img('icons/right-arrow-1-2.png')}" alt=""></span><span class="btn-title">Visit ${host}</span><span class="btn-arrow-right"><img src="${img('icons/right-arrow-1-2.png')}" alt=""></span></a>
+        </div>
+        <div class="ez-co__stats wow fadeInUp" data-wow-delay=".2s">
+          ${stats.map((s) => `<div><strong>${esc(s.value)}</strong><span>${esc(s.label)}</span></div>`).join('')}
+          ${statsNote ? `<p class="ez-co__note">${statsNote}</p>` : ''}
         </div>
       </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-        <div class="ez-company__mark">${mark}</div>
-        <span class="ez-kicker">${kicker}</span>
-        <h2 class="ez-h2">${title}</h2>
-        <p class="ez-lead-p">${intro}</p>
-        <p class="ez-company__who"><i class="fa-solid fa-helmet-safety"></i> ${who}</p>
-        <ul class="ez-checks">${get.map((g) => `<li><i class="fa-solid fa-circle-check"></i><span><strong>${esc(g.title)}.</strong> ${esc(g.text)}</span></li>`).join('')}</ul>
-        <div class="ez-company__actions">
-          <a class="btn-style-one" href="${url}" target="_blank" rel="noopener"><span class="btn-arrow-left"><img src="${img('icons/right-arrow-1-2.png')}" alt=""></span><span class="btn-title">Visit ${host}</span><span class="btn-arrow-right"><img src="${img('icons/right-arrow-1-2.png')}" alt=""></span></a>
-        </div>
-      </div>
+      <figure class="ez-co__photo wow fadeInUp">
+        <img src="${photo}" alt="${esc(photoAlt)}" loading="lazy">
+        <figcaption><blockquote>&ldquo;${esc(quote.text)}&rdquo;</blockquote><span><strong>${esc(quote.name)}</strong> ${esc(quote.company)}</span></figcaption>
+      </figure>
+      <ol class="ez-co__list">
+        ${get.map((g, i) => `<li class="wow fadeInUp" data-wow-delay="${delay(i)}"><span>${pad(i)}</span><h3>${esc(g.title)}</h3><p>${esc(g.text)}</p></li>`).join('')}
+      </ol>
     </div>
-    ${statsRow(stats, 'ez-company__stats')}
-    ${statsNote ? `<p class="ez-note text-center">${statsNote}</p>` : ''}
   </div>
 </section>`;
 }
@@ -402,6 +400,7 @@ ${companySection({
   intro: 'RoofCoat Leads runs Meta Ads for roofing companies doing silicone, acrylic, TPO and metal restoration, mostly commercial and industrial. Leads are screened for property type, timeline and budget, then sent to the contractor by SMS and email in real time.',
   photo: img('roof/crew-full-service.jpg'),
   photoAlt: 'Roof coating crew restoring a commercial roof',
+  bg: img('background/service-bg-1-1.jpg'),
   who: 'Coating roofers with 1 to 50 employees, tired of shared leads sold to five roofers.',
   get: C.roofing.get,
   stats: C.roofing.stats,
@@ -418,6 +417,7 @@ ${companySection({
   intro: 'Paving Leads runs Meta Ads for asphalt, sealcoating and chip seal crews, from residential driveways to commercial lots. Contractors get booked estimates with full job info, and no more door knocking.',
   photo: img('paving/sealcoat-crack-repair-crew.jpg'),
   photoAlt: 'Paving crew sealing asphalt',
+  bg: img('background/faq-bg-2-1.jpg'),
   who: 'Paving crews with 1 to 50 employees, tired of door knocking and pay-per-lead junk.',
   get: C.paving.get,
   stats: C.paving.stats,
