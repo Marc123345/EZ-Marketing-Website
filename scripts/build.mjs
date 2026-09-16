@@ -66,16 +66,6 @@ function cardGrid(items, { cols = 'col-xl-4 col-lg-6 col-md-6', numbered = true 
     </div>`;
 }
 
-function tiredOf(items, title) {
-  return `
-    <div class="ez-tired wow fadeInUp">
-      <h3>${title}</h3>
-      <ul class="pl-them">
-        ${items.map((t) => `<li><i class="fa-solid fa-xmark"></i><div><strong>${esc(t.text)}</strong><span>${esc(t.sub)}</span></div></li>`).join('')}
-      </ul>
-    </div>`;
-}
-
 function videoSection(videos, { sub = 'Video Testimonials', title = ['Hear It From', 'The Contractors'], intro = '', id = 'testimonials' } = {}) {
   return `
 <section class="pl-reels section-padding" id="${id}">
@@ -243,47 +233,6 @@ function methodSteps(items, { sub = 'How It Works', title = ['The System Behind'
 </section>`;
 }
 
-// Trade page hero, in the sub-brand's own hero artwork.
-function tradeHero({ kicker, h1, lead, bg, trade, outLabel, outHref }) {
-  return `
-<section class="plh ez-trade-hero" style="background-image: url(${bg});" aria-label="${esc(kicker)}">
-  <div class="container plh__container">
-    <div class="plh__content">
-      <span class="ez-kicker">${kicker}</span>
-      <h1 class="plh__title">${h1}</h1>
-      <p class="ez-hero-lead">${lead}</p>
-      <div class="ez-hero-actions">
-        <button type="button" class="plh-btn" data-booking="${trade}">
-          <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
-          <span class="plh-btn__label">${CTA}</span>
-          <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
-        </button>
-        ${outLink(outLabel, outHref, 'ez-out--hero')}
-      </div>
-    </div>
-  </div>
-  <img class="plh__mobile-art" src="${bg}" width="1916" height="821" alt="">
-</section>`;
-}
-
-function handoff({ mark, title, text, href, host, trade }) {
-  return section(
-    `
-    <div class="ez-handoff wow fadeInUp">
-      <div class="ez-handoff__brand">${mark}</div>
-      <div class="ez-handoff__copy">
-        <h2>${title}</h2>
-        <p>${text}</p>
-      </div>
-      <div class="ez-handoff__actions">
-        <a class="ez-handoff__visit" href="${href}" target="_blank" rel="noopener">Visit ${host} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        ${bookBtn(CTA, trade)}
-      </div>
-    </div>`,
-    { cls: 'pt-0' }
-  );
-}
-
 function adMock({ photo, text, headline, cta, domain }) {
   return `
         <div class="pl-fbad">
@@ -302,16 +251,51 @@ function adMock({ photo, text, headline, cta, domain }) {
         </div>`;
 }
 
-function photoCards(items) {
+// One sub-company, explained on the home page and linked out to its own website.
+function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, get, stats, statsNote = '', quote, url, host, reverse = false }) {
   return `
-    <div class="row g-4">
-      ${items
+<section class="section-padding ez-company" id="${id}">
+  <div class="container">
+    <div class="row g-5 align-items-center${reverse ? ' flex-lg-row-reverse' : ''}">
+      <div class="col-lg-6 wow fadeInUp">
+        <div class="ez-company__photo">
+          <img src="${photo}" alt="${esc(photoAlt)}" loading="lazy">
+          <figure class="ez-company__quote">
+            <blockquote>&ldquo;${esc(quote.text)}&rdquo;</blockquote>
+            <figcaption><strong>${esc(quote.name)}</strong> ${esc(quote.company)}</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
+        <div class="ez-company__mark">${mark}</div>
+        <span class="ez-kicker">${kicker}</span>
+        <h2 class="ez-h2">${title}</h2>
+        <p class="ez-lead-p">${intro}</p>
+        <p class="ez-company__who"><i class="fa-solid fa-helmet-safety"></i> ${who}</p>
+        <ul class="ez-checks">${get.map((g) => `<li><i class="fa-solid fa-circle-check"></i><span><strong>${esc(g.title)}.</strong> ${esc(g.text)}</span></li>`).join('')}</ul>
+        <div class="ez-company__actions">
+          <a class="btn-style-one" href="${url}" target="_blank" rel="noopener"><span class="btn-arrow-left"><img src="${img('icons/right-arrow-1-2.png')}" alt=""></span><span class="btn-title">Visit ${host}</span><span class="btn-arrow-right"><img src="${img('icons/right-arrow-1-2.png')}" alt=""></span></a>
+        </div>
+      </div>
+    </div>
+    ${statsRow(stats, 'ez-company__stats')}
+    ${statsNote ? `<p class="ez-note text-center">${statsNote}</p>` : ''}
+  </div>
+</section>`;
+}
+
+function teamGrid() {
+  return `
+    <div class="row g-4 justify-content-center">
+      ${C.about.team
         .map(
-          (s, i) => `
-      <div class="col-lg-${12 / Math.min(items.length, 4) >= 3 ? 12 / Math.min(items.length, 4) : 3} col-md-6 wow fadeInUp" data-wow-delay="${delay(i)}">
-        <div class="ez-photo-card">
-          <div class="ez-photo-card__img"><img src="${s.photo}" alt="${esc(s.title)}" loading="lazy"></div>
-          <div class="ez-photo-card__body"><h4>${esc(s.title)}</h4><p>${esc(s.text)}</p></div>
+          (m, i) => `
+      <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay="${delay(i)}">
+        <div class="ez-team">
+          <span class="ez-team__avatar">${esc(m.name.split(' ').map((n) => n[0]).join(''))}</span>
+          <h4>${esc(m.name)}</h4>
+          <p class="ez-team__role">${esc(m.title)}</p>
+          ${m.bio ? `<p>${esc(m.bio)}</p>` : ''}
         </div>
       </div>`
         )
@@ -323,7 +307,7 @@ function photoCards(items) {
 
 const pages = [];
 
-// 1. Home
+// 1. Home: EZ Marketing first, then its two companies, each linking to its own website.
 pages.push({
   file: 'index.html',
   path: '/',
@@ -336,9 +320,9 @@ pages.push({
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-xl-6 col-lg-6">
-        <span class="ez-kicker">The Facebook Ads agency for roof coating &amp; paving contractors</span>
+        <span class="ez-kicker">EZ Marketing &middot; The Facebook Ads agency for roof coating &amp; paving contractors</span>
         <h1 class="ezh__title">Facebook Ads for roofers and pavers. <span>Real jobs, your territory, nobody else's.</span></h1>
-        <p class="ez-hero-lead">We run Facebook and Instagram campaigns for coating roofers and paving contractors. The ads bring in exclusive, pre-qualified jobs in your territory.</p>
+        <p class="ez-hero-lead">EZ Marketing runs Facebook and Instagram campaigns for two trades, through two companies we built: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
         <div class="ez-hero-actions">
           <button type="button" class="plh-btn" data-booking="">
             <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
@@ -349,7 +333,7 @@ pages.push({
         <ul class="ez-support">${C.supportLines.map((l) => `<li><i class="fa-solid fa-check"></i>${esc(l)}</li>`).join('')}</ul>
       </div>
       <div class="col-xl-6 col-lg-6">
-        <p class="ezh__pick">Pick your trade</p>
+        <p class="ezh__pick">Our two companies</p>
         <div class="ezh__trades">
           ${['roofing', 'paving']
             .map((k) => {
@@ -361,7 +345,7 @@ pages.push({
               <span class="ez-trade__label">${t.label}</span>
               <strong>${t.title}</strong>
               <span class="ez-trade__text">${t.text}</span>
-              <span class="ez-trade__go">See how it works <i class="fa-solid fa-arrow-right"></i></span>
+              <span class="ez-trade__go">Learn about ${t.title} <i class="fa-solid fa-arrow-down"></i></span>
             </span>
           </a>`;
             })
@@ -381,32 +365,58 @@ ${section(
 
 ${section(
   `
-    ${heading('Two Trades. Two Systems.', ['Built for Your Trade.', 'Proven in the Field.'], 'RoofCoat Leads and Paving Leads are the lead systems we built, one for each trade. Each has its own campaigns, its own proof and its own website.')}
-    <div class="row g-4">
-      <div class="col-lg-6 wow fadeInUp">
-        <div class="ez-system">
-          <div class="ez-system__img"><img src="${img('roof/crew-full-service.jpg')}" alt="Roof coating crew on a commercial roof"></div>
-          <div class="ez-system__body">
-            ${roofcoatMark()}
-            <h3>Exclusive roof coating leads in your territory</h3>
-            <p>Commercial and residential coating leads for silicone, acrylic, TPO and metal restoration. Screened for property type, timeline and budget, delivered by SMS and email in real time.</p>
-            <div class="ez-system__actions">${btn('Roof coating leads', { href: '/roof-coating-leads' })}${outLink('roofcoatleads.com', site.roofcoatUrl)}</div>
-          </div>
-        </div>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 wow fadeInUp">
+        <div class="ez-about-logo"><img src="${img('ez/logo.svg')}" alt="EZ Marketing logo"></div>
       </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-        <div class="ez-system">
-          <div class="ez-system__img"><img src="${img('paving/sealcoat-crack-repair-crew.jpg')}" alt="Paving crew sealing asphalt"></div>
-          <div class="ez-system__body">
-            ${pavingMark()}
-            <h3>Exclusive paving leads booked on your calendar</h3>
-            <p>Booked estimates with full job info for asphalt, sealcoating and chip seal crews. Driveways to commercial lots, and no more door knocking.</p>
-            <div class="ez-system__actions">${btn('Paving leads', { href: '/paving-leads' })}${outLink('pavinglead.com', site.pavingUrl)}</div>
-          </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".2s">
+        ${subTitle('Who We Are')}
+        ${secTitle('One Agency.', 'Two Trades.')}
+        <p class="ez-lead-p">${esc(C.about.story[0])}</p>
+        <p class="ez-lead-p">We run our Facebook Ads through two companies, one for each trade. Each has its own campaigns, its own proof and its own website, so a coating roofer only ever hears about roofing and a paving crew only ever hears about paving.</p>
+        <div class="ez-org">
+          <a class="ez-org__node" href="#roofcoat-leads">${roofcoatMark()}<span>Roof coating contractors</span></a>
+          <a class="ez-org__node" href="#paving-leads">${pavingMark()}<span>Paving contractors</span></a>
         </div>
+        ${btn('Meet the team', { href: '/about#team' })}
       </div>
-    </div>`
+    </div>`,
+  { cls: 'ez-band' }
 )}
+
+${companySection({
+  id: 'roofcoat-leads',
+  mark: roofcoatMark(),
+  kicker: 'Company 01 &middot; For roof coating contractors',
+  title: 'RoofCoat Leads: <span class="ez-accent">exclusive roof coating leads in your territory</span>',
+  intro: 'RoofCoat Leads runs Facebook Ads for roofing companies doing silicone, acrylic, TPO and metal restoration, mostly commercial and industrial. Leads are screened for property type, timeline and budget, then sent to the contractor by SMS and email in real time.',
+  photo: img('roof/crew-full-service.jpg'),
+  photoAlt: 'Roof coating crew restoring a commercial roof',
+  who: 'Coating roofers with 1 to 50 employees, tired of shared leads sold to five roofers.',
+  get: C.roofing.get,
+  stats: C.roofing.stats,
+  quote: { text: C.roofing.videos[1].quote, name: C.roofing.videos[1].author, company: C.roofing.videos[1].company },
+  url: site.roofcoatUrl,
+  host: 'roofcoatleads.com',
+})}
+
+${companySection({
+  id: 'paving-leads',
+  mark: pavingMark(),
+  kicker: 'Company 02 &middot; For paving contractors',
+  title: 'Paving Leads: <span class="ez-accent">exclusive paving leads booked on your calendar</span>',
+  intro: 'Paving Leads runs Facebook Ads for asphalt, sealcoating and chip seal crews, from residential driveways to commercial lots. Contractors get booked estimates with full job info, and no more door knocking.',
+  photo: img('paving/sealcoat-crack-repair-crew.jpg'),
+  photoAlt: 'Paving crew sealing asphalt',
+  who: 'Paving crews with 1 to 50 employees, tired of door knocking and pay-per-lead junk.',
+  get: C.paving.get,
+  stats: C.paving.stats,
+  statsNote: 'Paving-side figures, as published on pavinglead.com.',
+  quote: { text: C.paving.videos[0].quote, name: C.paving.videos[0].author, company: C.paving.videos[0].company },
+  url: site.pavingUrl,
+  host: 'pavinglead.com',
+  reverse: true,
+})}
 
 <section class="feature-section section-padding">
   <div class="container">
@@ -424,7 +434,7 @@ ${section(
         <div class="ez-promise ez-h100">
           <img src="${img('ez/logo.svg')}" alt="" width="96" height="96">
           <p class="ez-promise__big">${esc(C.agencyVsUs.us)}</p>
-          <p>We only work with coating roofers and paving contractors. We know the jobs, the seasons and the buyers, so your campaign starts from a playbook that already works in your trade.</p>
+          <p>We only work with coating roofers and paving contractors. We know the jobs, the seasons and the buyers, so every campaign starts from a playbook that already works in the trade.</p>
           ${bookBtn(CTA)}
         </div>
       </div>
@@ -432,30 +442,14 @@ ${section(
   </div>
 </section>
 
-${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You Run the Crew.'], intro: 'The same system runs behind RoofCoat Leads and Paving Leads.' })}
+${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You Run the Crew.'], intro: 'The same Facebook Ads system runs behind RoofCoat Leads and Paving Leads.' })}
 
-${section(
-  `
-    ${heading('Keeping Leads Converting', ['The Ads Bring the Lead.', 'The Rest Closes It.'], 'Website design, SEO and GEO &amp; AEO are not a menu. They are what makes a Facebook lead pick up the phone once they check you out.')}
-    <div class="row g-4">
-      ${C.supportServices
-        .map(
-          (s, i) => `
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${delay(i, 2)}">
-        <a class="ez-service" href="${s.href}">
-          <span class="ez-service__img"><img src="${s.photo}" alt="" loading="lazy"></span>
-          <span class="ez-service__kicker">${esc(s.short)}</span>
-          <strong>${esc(s.title)}</strong>
-          <span class="ez-service__text">${esc(s.text)}</span>
-          <span class="ez-service__go">Learn more ${arrowSvg}</span>
-        </a>
-      </div>`
-        )
-        .join('')}
-    </div>`
-)}
+${videoSection([C.roofing.videos[0], C.roofing.videos[1], C.paving.videos[0], C.paving.videos[2]], { sub: 'Proof From the Field', title: ['Real Contractors.', 'Real Jobs.'], intro: 'Contractors from both companies, running jobs from our campaigns.' })}
 
-${videoSection([C.roofing.videos[0], C.roofing.videos[1], C.paving.videos[0], C.paving.videos[2]], { sub: 'Proof From the Field', title: ['Real Contractors.', 'Real Jobs.'], intro: 'Coating roofers and paving contractors running jobs from our campaigns.' })}
+${section(`
+    ${heading('The Team', ['The People Behind', 'EZ Marketing'])}
+    ${teamGrid()}
+    <div class="text-center mt-5">${btn('About EZ Marketing', { href: '/about' })}</div>`)}
 
 ${faqSection(C.homeFaqs)}`,
 });
@@ -501,28 +495,16 @@ ${section(`${heading('Why Two Trades', ['Narrow on Purpose.', 'Better for You.']
 ${section(
   `
     ${heading('The Team', ['The People Behind', 'Your Campaigns'])}
-    <div class="row g-4 justify-content-center">
-      ${C.about.team
-        .map(
-          (m, i) => `
-      <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay="${delay(i)}">
-        <div class="ez-team">
-          <span class="ez-team__avatar">${esc(m.name.split(' ').map((n) => n[0]).join(''))}</span>
-          <h4>${esc(m.name)}</h4>
-          <p>${esc(m.title)}</p>
-        </div>
-      </div>`
-        )
-        .join('')}
-    </div>`
+    ${teamGrid()}`,
+  { id: 'team', cls: 'ez-band' }
 )}
 
 ${section(
   `
-    ${heading('Our Lead Systems', ['One for Each Trade', ''])}
+    ${heading('Our Companies', ['One for Each', 'Trade'])}
     <div class="row g-4">
-      <div class="col-md-6"><a class="ez-brandlink" href="/roof-coating-leads">${roofcoatMark()}<span>For roofing contractors who do coatings <i class="fa-solid fa-arrow-right"></i></span></a></div>
-      <div class="col-md-6"><a class="ez-brandlink" href="/paving-leads">${pavingMark()}<span>For asphalt, sealcoating and chip seal crews <i class="fa-solid fa-arrow-right"></i></span></a></div>
+      <div class="col-md-6"><a class="ez-brandlink" href="${site.roofcoatUrl}" target="_blank" rel="noopener">${roofcoatMark()}<span>For roofing contractors who do coatings: roofcoatleads.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a></div>
+      <div class="col-md-6"><a class="ez-brandlink" href="${site.pavingUrl}" target="_blank" rel="noopener">${pavingMark()}<span>For asphalt, sealcoating and chip seal crews: pavinglead.com <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a></div>
     </div>`,
   { cls: 'pt-0' }
 )}`,
@@ -578,180 +560,14 @@ ${section(
   `
     ${heading('Packaged per Trade', ['See It in', 'Your Trade'])}
     <div class="row g-4">
-      <div class="col-md-6"><a class="ez-brandlink" href="/roof-coating-leads">${roofcoatMark()}<span>Facebook Ads for coating roofers <i class="fa-solid fa-arrow-right"></i></span></a></div>
-      <div class="col-md-6"><a class="ez-brandlink" href="/paving-leads">${pavingMark()}<span>Facebook Ads for paving contractors <i class="fa-solid fa-arrow-right"></i></span></a></div>
+      <div class="col-md-6"><a class="ez-brandlink" href="${site.roofcoatUrl}" target="_blank" rel="noopener">${roofcoatMark()}<span>Facebook Ads for coating roofers <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a></div>
+      <div class="col-md-6"><a class="ez-brandlink" href="${site.pavingUrl}" target="_blank" rel="noopener">${pavingMark()}<span>Facebook Ads for paving contractors <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a></div>
     </div>`,
   { cls: 'pt-0' }
 )}
 
 ${faqSection(C.fbFaqs, { title: ['Facebook Ads', 'Questions'] })}`,
 });
-
-// 4. RoofCoat Leads (roofing only: no paving references on this page)
-pages.push({
-  file: 'roof-coating-leads.html',
-  path: '/roof-coating-leads',
-  title: 'RoofCoat Leads: Exclusive Roof Coating Leads',
-  description: 'Exclusive commercial and residential roof coating leads in your territory, screened for property type, timeline and budget. Silicone, acrylic, TPO and metal restoration.',
-  body: `
-${tradeHero({
-  kicker: 'RoofCoat Leads by EZ Marketing',
-  h1: 'Exclusive roof coating leads <span>in your territory</span>',
-  lead: 'Commercial and residential coating leads, screened for property type, timeline and budget, and sent to your phone by SMS and email in real time.',
-  bg: img('roof/hero-bg.jpg'),
-  trade: 'roofing',
-  outLabel: 'Visit roofcoatleads.com',
-  outHref: site.roofcoatUrl,
-})}
-
-${section(
-  `
-    <div class="row g-5">
-      <div class="col-lg-6 wow fadeInUp">
-        ${subTitle('Who It Is For')}
-        ${secTitle('Built for Coating', 'Roofers')}
-        <ul class="ez-checks">${C.roofing.who.map((w) => `<li><i class="fa-solid fa-circle-check"></i>${esc(w)}</li>`).join('')}</ul>
-        <p class="ez-lead-p">Commercial coating jobs are high-ticket. Clients have closed six-figure jobs from single leads, so every lead that reaches you should be a real building owner in your range.</p>
-      </div>
-      <div class="col-lg-6">${tiredOf(C.roofing.tiredOf, 'What you are done with')}</div>
-    </div>`
-)}
-
-${section(`${heading('What You Get', ['Leads Worth', 'Driving Out For'])}${cardGrid(C.roofing.get, { cols: 'col-xl-3 col-lg-6 col-md-6' })}`, { cls: 'ez-band' })}
-
-${section(`${heading('Coating Types', ['Campaigns for Every', 'Coating You Sell'])}${photoCards(C.roofing.coatings)}`)}
-
-${section(
-  `
-    ${statsRow(C.roofing.stats, 'mt-0 ez-stats-top')}
-    ${disclaimer(DISCLAIMER, 'ez-disclaimer--center')}
-    <div class="ez-case wow fadeInUp">
-      <span class="ez-case__tag">Case study</span>
-      <h3>${esc(C.roofing.caseStudy.title)}</h3>
-      <p>${esc(C.roofing.caseStudy.text)}</p>
-      ${outLink('Read the case study', C.roofing.caseStudy.href)}
-    </div>`,
-  { cls: 'pt-0' }
-)}
-
-${videoSection(C.roofing.videos, { sub: 'Roofing Contractors', title: ['Hear It From', 'Coating Roofers'], intro: 'Contractors running coating jobs from RoofCoat Leads campaigns.' })}
-
-${handoff({
-  mark: roofcoatMark(),
-  title: 'Ready to see plans for your territory?',
-  text: 'Plans, pricing and sign-up live on roofcoatleads.com. Or book a free strategy call and we will map out your territory first.',
-  href: site.roofcoatUrl,
-  host: 'roofcoatleads.com',
-  trade: 'roofing',
-})}`,
-});
-
-// 5. Paving Leads (paving only: no roofing references on this page)
-pages.push({
-  file: 'paving-leads.html',
-  path: '/paving-leads',
-  title: 'Paving Leads: Exclusive Paving Leads',
-  description: 'Exclusive paving leads booked on your calendar. Booked estimates with full job info for asphalt, sealcoating and chip seal crews. No more door knocking.',
-  body: `
-${tradeHero({
-  kicker: 'Paving Leads by EZ Marketing',
-  h1: 'Exclusive paving leads <span>booked on your calendar</span>',
-  lead: 'Booked estimates with full job info for asphalt, sealcoating and chip seal crews. No more door knocking.',
-  bg: img('paving/hero-bg.jpg'),
-  trade: 'paving',
-  outLabel: 'Visit pavinglead.com',
-  outHref: site.pavingUrl,
-})}
-
-${section(
-  `
-    <div class="row g-5">
-      <div class="col-lg-6 wow fadeInUp">
-        ${subTitle('Who It Is For')}
-        ${secTitle('Built for Paving', 'Crews')}
-        <ul class="ez-checks">${C.paving.who.map((w) => `<li><i class="fa-solid fa-circle-check"></i>${esc(w)}</li>`).join('')}</ul>
-        <p class="ez-lead-p">Paving is a volume game. The goal is a full calendar of real estimates, so your trucks keep moving all season.</p>
-      </div>
-      <div class="col-lg-6">${tiredOf(C.paving.tiredOf, 'What you are done with')}</div>
-    </div>`
-)}
-
-${section(`${heading('What You Get', ['Estimates on the Calendar,', 'Not Names on a List'])}${cardGrid(C.paving.get, { cols: 'col-xl-3 col-lg-6 col-md-6' })}`, { cls: 'ez-band' })}
-
-${section(`${heading('Jobs We Bring In', ['From Driveways', 'to Parking Lots'])}${photoCards(C.paving.services)}`)}
-
-${section(
-  `
-    ${statsRow(C.paving.stats, 'mt-0 ez-stats-top')}
-    <p class="ez-note text-center">Figures from Paving Leads clients, as published on pavinglead.com.</p>
-    ${disclaimer(DISCLAIMER, 'ez-disclaimer--center')}
-    <div class="ez-board wow fadeInUp">
-      <p>Paving contractors on the system</p>
-      <img src="${img('paving/trusted-contractors.jpg')}" alt="Logos of paving contractors who use Paving Leads" loading="lazy">
-    </div>`,
-  { cls: 'pt-0' }
-)}
-
-${videoSection(C.paving.videos, { sub: 'Paving Contractors', title: ['Hear It From', 'Paving Crews'], intro: 'Paving contractors who stopped door knocking.' })}
-
-${writtenSlider(C.paving.written, { sub: 'Testimonials', title: ['What Paving Contractors', 'Say'] })}
-
-${handoff({
-  mark: pavingMark(),
-  title: 'Ready to see plans for your territory?',
-  text: 'Plans, pricing and sign-up live on pavinglead.com. Or book a free strategy call and we will map out your territory first.',
-  href: site.pavingUrl,
-  host: 'pavinglead.com',
-  trade: 'paving',
-})}`,
-});
-
-// 6-8. Supporting services
-for (const [slug, s] of Object.entries(C.servicesPages)) {
-  pages.push({
-    file: `${slug}.html`,
-    path: `/${slug}`,
-    title: s.title,
-    description: s.description,
-    schema: [faqSchema(s.faqs)],
-    body: `
-${pageTitle(s.title, s.photo, { h1: esc(s.h1), lead: esc(s.kicker) })}
-
-${section(
-  `
-    <div class="ez-problem wow fadeInUp">
-      <span class="ez-problem__tag">The problem</span>
-      <h2>${esc(s.problem.title)}</h2>
-      <p>${esc(s.problem.text)}</p>
-    </div>`
-)}
-
-${section(`${heading('How We Do It', ['Built to Keep', 'Facebook Leads Converting'])}${cardGrid(s.steps)}`, { cls: 'ez-band' })}
-
-${section(
-  `
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-6 wow fadeInUp">
-        ${subTitle('Proof')}
-        <h2 class="ez-h2">${esc(s.proof.title)}</h2>
-        <p class="ez-lead-p">${esc(s.proof.text)}</p>
-        <ul class="ez-checks">${s.proof.points.map((p) => `<li><i class="fa-solid fa-circle-check"></i>${esc(p)}</li>`).join('')}</ul>
-        <div class="ez-system__actions">${outLink('roofcoatleads.com', site.roofcoatUrl)}${outLink('pavinglead.com', site.pavingUrl)}</div>
-      </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-        <div class="ez-cta-card">
-          <img src="${img('ez/logo.svg')}" alt="" width="72" height="72">
-          <h3>Part of your campaign, not a separate menu</h3>
-          <p>${esc(s.title)} is sold alongside our Facebook Ads for coating roofers and paving contractors. On a strategy call we look at what you have and what your leads see when they check you out.</p>
-          ${bookBtn(CTA)}
-        </div>
-      </div>
-    </div>`
-)}
-
-${faqSection(s.faqs, { title: [`${esc(s.title)}`, 'Questions'] })}`,
-  });
-}
 
 // 9. Results
 pages.push({
@@ -792,7 +608,7 @@ ${section(
 
 ${section(
   `
-    <div class="ez-results-head">${roofcoatMark()}<a href="/roof-coating-leads">Roof coating leads <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="ez-results-head">${roofcoatMark()}<a href="${site.roofcoatUrl}" target="_blank" rel="noopener">roofcoatleads.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
     ${statsRow(C.roofing.stats, 'mt-0')}
     <div class="ez-case wow fadeInUp">
       <span class="ez-case__tag">Roof coating case study</span>
@@ -806,7 +622,7 @@ ${videoSection(C.roofing.videos, { sub: 'Roof Coating', title: ['Coating Roofers
 
 ${section(
   `
-    <div class="ez-results-head">${pavingMark()}<a href="/paving-leads">Paving leads <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="ez-results-head">${pavingMark()}<a href="${site.pavingUrl}" target="_blank" rel="noopener">pavinglead.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
     ${statsRow(C.paving.stats, 'mt-0')}
     <p class="ez-note text-center">Paving-side figures, as published on pavinglead.com.</p>`,
   { cls: 'ez-band' }

@@ -226,6 +226,11 @@ function footer() {
                   <h4 class="pl-footer__title">${title}</h4>
                   <ul class="pl-footer__links">${links.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join('')}</ul>
                 </div>`;
+  const colOut = (title, links) => `
+                <div class="pl-footer__col">
+                  <h4 class="pl-footer__title">${title}</h4>
+                  <ul class="pl-footer__links">${links.map(([label, href]) => `<li><a href="${href}" target="_blank" rel="noopener">${label} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:11px"></i></a></li>`).join('')}</ul>
+                </div>`;
   const year = new Date().getFullYear();
   return `
         <footer class="footer-section pl-footer">
@@ -259,13 +264,13 @@ function footer() {
                     ${site.email ? `<li><i class="fa-solid fa-envelope"></i> <a href="mailto:${site.email}">${esc(site.email)}</a></li>` : ''}
                   </ul>
                 </div>
-                ${col('Trades', [['Roof Coating Leads', '/roof-coating-leads'], ['Paving Leads', '/paving-leads']])}
-                ${col('Services', [['Facebook Ads', '/facebook-ads'], ['Website Design', '/website-design'], ['SEO', '/seo'], ['GEO & AEO', '/geo-aeo']])}
-                ${col('Company', [['Results', '/results'], ['About', '/about'], ['Contact', '/contact']])}
+                ${colOut('Our Companies', [['RoofCoat Leads', site.roofcoatUrl], ['Paving Leads', site.pavingUrl]])}
+                ${col('EZ Marketing', [['Home', '/'], ['Facebook Ads', '/facebook-ads'], ['Results', '/results']])}
+                ${col('Company', [['About', '/about'], ['Team', '/about#team'], ['Contact', '/contact']])}
               </div>
 
               <div class="ez-footer__brands">
-                <span class="ez-footer__brands-label">Our lead systems</span>
+                <span class="ez-footer__brands-label">Our companies</span>
                 <a href="${site.roofcoatUrl}" target="_blank" rel="noopener" aria-label="RoofCoat Leads website">${roofcoatMark()}</a>
                 <a href="${site.pavingUrl}" target="_blank" rel="noopener" aria-label="Paving Leads website">${pavingMark()}</a>
               </div>

@@ -24,17 +24,14 @@ export const site = {
 
 export const nav = [
   { href: '/', label: 'Home' },
-  { href: '/roof-coating-leads', label: 'Roof Coating' },
-  { href: '/paving-leads', label: 'Paving' },
-  { href: '/facebook-ads', label: 'Facebook Ads' },
   {
-    label: 'More',
+    label: 'Our Companies',
     children: [
-      { href: '/website-design', label: 'Website Design' },
-      { href: '/seo', label: 'SEO' },
-      { href: '/geo-aeo', label: 'GEO & AEO' },
+      { href: '/#roofcoat-leads', label: 'RoofCoat Leads' },
+      { href: '/#paving-leads', label: 'Paving Leads' },
     ],
   },
+  { href: '/facebook-ads', label: 'Facebook Ads' },
   { href: '/results', label: 'Results' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -98,43 +95,19 @@ export const method = [
 export const tradeCards = {
   roofing: {
     label: 'I do roof coatings',
-    href: '/roof-coating-leads',
+    href: '#roofcoat-leads',
     title: 'RoofCoat Leads',
     text: 'Exclusive commercial and residential coating leads in your territory.',
     photo: '/assets/images/roof/silicone.jpg',
   },
   paving: {
     label: 'I do paving',
-    href: '/paving-leads',
+    href: '#paving-leads',
     title: 'Paving Leads',
     text: 'Booked estimates with full job info for asphalt, sealcoating and chip seal crews.',
     photo: '/assets/images/paving/paver-crew-dusk-lights.jpg',
   },
 };
-
-export const supportServices = [
-  {
-    href: '/website-design',
-    title: 'Website Design',
-    short: 'A site that turns ad clicks into calls.',
-    text: 'When a lead taps your ad, the page they land on decides whether they call. We build contractor sites made to convert that traffic.',
-    photo: '/assets/images/paving/laptop-revenue-dashboard-dark-desk.jpg',
-  },
-  {
-    href: '/seo',
-    title: 'SEO',
-    short: 'Found when they search your name.',
-    text: 'Most leads look you up before they pick up the phone. Ranking for your trade and your territory backs up every ad.',
-    photo: '/assets/images/paving/dark-analytics-dashboard-laptop.jpg',
-  },
-  {
-    href: '/geo-aeo',
-    title: 'GEO & AEO',
-    short: 'Named when they ask ChatGPT.',
-    text: 'Property owners now ask ChatGPT, Gemini and Google AI Overviews who to call. Your business should be the answer.',
-    photo: '/assets/images/paving/phone-social-media-apps-dark-neon.jpg',
-  },
-];
 
 export const homeFaqs = [
   { q: 'Who do you work with?', a: 'Two trades only: roofing contractors who do coatings (silicone, acrylic, TPO and metal restoration) and paving contractors (asphalt, sealcoating and chip seal). If that is not you, we are not the right agency.' },
@@ -146,27 +119,11 @@ export const homeFaqs = [
 
 // ---------- Roofing (RoofCoat Leads) ----------
 export const roofing = {
-  who: [
-    'Roofing companies doing silicone, acrylic, TPO and metal restoration',
-    'Mostly commercial and industrial work, plus residential flat roofs',
-    '1 to 50 employees, where the owner makes the call',
-  ],
-  tiredOf: [
-    { text: 'Shared leads sold to five roofers', sub: 'You race four other crews to the same building owner.' },
-    { text: 'Leads outside your travel range', sub: 'A "lead" three hours away is not a lead.' },
-    { text: 'Agencies that need six months', sub: 'By the time they "optimize", coating season is over.' },
-  ],
   get: [
     { title: 'Your territory, locked', text: 'Exclusive commercial and residential coating leads inside the area you actually work. Nobody else gets them from us.' },
     { title: 'Screened before they reach you', text: 'Every lead is screened for property type, timeline and budget, so you spend your day on estimates, not tire-kickers.' },
     { title: 'Delivered in real time', text: 'New leads land on your phone by SMS and email the moment they qualify, with the answers attached.' },
     { title: 'First lead inside 48 hours', text: 'Most clients get their first lead within 48 hours of launch. No six-month ramp-up.' },
-  ],
-  coatings: [
-    { title: 'Silicone', text: 'Commercial flat and low-slope roofs where owners want to extend roof life instead of replacing.', photo: '/assets/images/roof/silicone.jpg' },
-    { title: 'Acrylic', text: 'Residential and light commercial roofs where energy savings and leak repair drive the decision.', photo: '/assets/images/roof/spray.jpg' },
-    { title: 'TPO & flat roof', text: 'Owners dealing with leaks, ponding water and upcoming inspections right now.', photo: '/assets/images/roof/tpo-repair.jpg' },
-    { title: 'Metal restoration', text: 'Industrial and agricultural buildings where restoring beats a full replacement.', photo: '/assets/images/roof/crew-full-service.jpg' },
   ],
   stats: [
     { value: '100%', label: 'Exclusive leads' },
@@ -190,26 +147,11 @@ export const roofing = {
 // ---------- Paving (Paving Leads) ----------
 const pvVideo = (file) => `https://ik.imagekit.io/qcvroy8xpd/${file}?tr=orig-true`;
 export const paving = {
-  who: [
-    'Asphalt paving, sealcoating and chip seal crews',
-    'Residential driveways through to commercial lots',
-    '1 to 50 employees, where the owner or sales lead makes the call',
-  ],
-  tiredOf: [
-    { text: 'Door knocking', sub: 'Hours on the road for a handful of maybes.' },
-    { text: 'Pay-per-lead junk', sub: 'HomeAdvisor-style leads that never pick up, sold to everyone.' },
-    { text: "Agencies that don't get the trade", sub: 'Marketers who have never stood on a fresh lot.' },
-  ],
   get: [
     { title: 'Booked estimates', text: 'Qualified homeowners and property managers put on your calendar, so your crew goes out to quote real jobs.' },
     { title: 'Full job info', text: 'Every lead comes with the job details up front: what they need paved or sealed and where. No guessing before you drive out.' },
     { title: 'Your territory only', text: 'Exclusive leads in your area. We do not sell the same driveway to five other pavers.' },
     { title: 'Keep the calendar full', text: 'Volume that keeps trucks moving, from driveways to parking lots, without door knocking.' },
-  ],
-  services: [
-    { title: 'Asphalt paving', text: 'Driveways, private roads and new lots.', photo: '/assets/images/paving/driveway-blacktop-winter-home.jpg' },
-    { title: 'Sealcoating & repair', text: 'Crack repair and sealcoating that protect the asphalt investment.', photo: '/assets/images/paving/sealcoat-crack-repair-crew.jpg' },
-    { title: 'Commercial lots', text: 'Resurfacing, sealcoating and striping for property managers.', photo: '/assets/images/paving/parking-lot-fresh-striping-arrow.jpg' },
   ],
   // Paving-side figures, as published on pavinglead.com.
   stats: [
@@ -247,97 +189,6 @@ export const fbFaqs = [
   { q: 'Who handles the ad account and budget?', a: 'Your campaign manager builds and runs the campaigns. Ad spend is paid to Meta and is separate from our fee. We walk through the budget on the strategy call.' },
   { q: 'What happens after a lead comes in?', a: 'You get it by SMS and email right away with the answers to the qualification questions. The faster you call, the more you close.' },
 ];
-
-// ---------- Supporting services (website design, SEO, GEO & AEO) ----------
-export const servicesPages = {
-  'website-design': {
-    title: 'Website Design',
-    h1: 'A website built to turn ad clicks into estimates',
-    kicker: 'Included with campaigns',
-    photo: '/assets/images/paving/laptop-revenue-dashboard-dark-desk.jpg',
-    description: 'Contractor websites built to convert Facebook ad traffic into calls and booked estimates. Included with EZ Marketing campaigns.',
-    problem: {
-      title: 'The ad does its job. Then the site loses the lead.',
-      text: 'A property owner taps your ad, lands on a slow, generic page with no clear next step, and leaves. You paid for that click. Most contractor sites are built to look nice, not to get the phone ringing.',
-    },
-    steps: [
-      { title: 'Built for phones first', text: 'Most ad traffic is on a phone. Click-to-call and the estimate form sit where a thumb can reach them.' },
-      { title: 'One job per page', text: 'Every page leads to a call or a booked estimate. No dead ends, no menus to get lost in.' },
-      { title: 'Fast', text: 'Pages load quickly on a job-site connection, because a lead will not wait for a slow site.' },
-      { title: 'A page for every territory', text: 'Service-area pages for the towns you work, so the site matches where your ads run.' },
-      { title: 'Proof up front', text: 'Real jobs, reviews and video testimonials where a doubtful owner looks for them.' },
-      { title: 'Included with campaigns', text: 'The site comes with your campaign. It is part of making the leads convert, not a separate project.' },
-    ],
-    proof: {
-      title: 'We build our own lead sites the same way',
-      text: 'roofcoatleads.com and pavinglead.com are built on the same approach: fast pages, a booking calendar one tap away, video testimonials and a page for every market they serve.',
-      points: ['Booking calendar on every page', 'Click-to-call and estimate forms', 'Service-area pages for every market', 'Video testimonials from real contractors'],
-    },
-    faqs: [
-      { q: 'Is the website extra?', a: 'The contractor site is included with campaigns. We cover the details on the strategy call.' },
-      { q: 'I already have a website. Do I need a new one?', a: 'Not always. On the call we look at your current site. If it can turn ad clicks into calls, we keep it. If it cannot, we build one that does.' },
-      { q: 'Can I update it myself?', a: 'Yes. We set it up so your details, photos and service areas are easy to keep current, or we handle changes for you.' },
-    ],
-  },
-  seo: {
-    title: 'SEO',
-    h1: 'Own your territory on Google, not just in the ads',
-    kicker: 'SEO for coating roofers and paving contractors',
-    photo: '/assets/images/paving/dark-analytics-dashboard-laptop.jpg',
-    description: 'SEO for roof coating and paving contractors: rank for your trade and your territory so paid ads and organic search work together.',
-    problem: {
-      title: 'Your leads Google you before they call',
-      text: 'A property owner sees your ad, then searches your name and your trade. If a competitor shows up first, or you do not show up at all, the ad you paid for sends them somewhere else.',
-    },
-    steps: [
-      { title: 'Trade plus territory', text: 'We target the searches that turn into jobs: your service, your towns. "Roof coating Tampa", not "best roofer".' },
-      { title: 'Service-area pages', text: 'A useful page for each area you serve, written for the people who live and own property there.' },
-      { title: 'Google Business Profile', text: 'Your profile set up and kept consistent, so you show up in the map results where local jobs start.' },
-      { title: 'Technical basics done right', text: 'Fast pages, clean structure and schema markup so Google understands what you do and where.' },
-      { title: 'Reviews that work for you', text: 'A simple way to turn finished jobs into reviews that back up every ad and every search result.' },
-      { title: 'Paid and organic together', text: 'The ads bring leads now. SEO builds the name they find when they check you out, so the two compound.' },
-    ],
-    proof: {
-      title: 'Territory pages at scale',
-      text: 'RoofCoat Leads has a dedicated page for every US state, Washington DC, Puerto Rico and all eight Australian states and territories. That is the same territory-first structure we build for contractors.',
-      points: ['A page per market, each with local cities', 'Structured data on every page', 'Sitemaps kept current automatically', 'Built for speed on mobile'],
-    },
-    faqs: [
-      { q: 'How long does SEO take?', a: 'Longer than ads. Facebook campaigns bring leads in days. SEO builds over months, which is why we run it alongside the ads, not instead of them.' },
-      { q: 'Do you guarantee rankings?', a: 'No, and you should be wary of anyone who does. We do the work that search engines reward and show you what changes.' },
-      { q: 'Do I need SEO if the ads work?', a: 'Most leads look you up before they call. SEO makes sure what they find makes them pick up the phone.' },
-    ],
-  },
-  'geo-aeo': {
-    title: 'GEO & AEO',
-    h1: 'When a property manager asks AI who to call, it should say you',
-    kicker: 'Generative & answer engine optimization',
-    photo: '/assets/images/paving/phone-social-media-apps-dark-neon.jpg',
-    description: 'GEO and AEO for roof coating and paving contractors: be the business ChatGPT, Gemini and Google AI Overviews name when a property owner asks who to call.',
-    problem: {
-      title: 'The search box is turning into a question',
-      text: 'Property managers and homeowners now ask ChatGPT, Gemini or Google\'s AI Overviews "who should I call to coat my roof?" or "who seals parking lots near me?". Those tools name a few businesses. Everyone else is invisible.',
-    },
-    steps: [
-      { title: 'Clear answers on your site', text: 'Plain-language pages that answer the questions owners ask, so AI tools have something accurate to quote.' },
-      { title: 'Structured data', text: 'Schema markup that spells out your business, services, service areas and FAQs in a format machines read.' },
-      { title: 'Consistent business details', text: 'Your name, address, phone and services matching everywhere, so AI tools trust they have the right business.' },
-      { title: 'Reviews and mentions', text: 'Real reviews and mentions on the sites AI tools draw from, because they recommend businesses others vouch for.' },
-      { title: 'Trade and territory focus', text: 'Content tied to your trade and your towns, so you are the specific answer, not a generic one.' },
-      { title: 'Checked and adjusted', text: 'We ask the AI tools the questions your customers ask and track whether your business shows up.' },
-    ],
-    proof: {
-      title: 'Built into how we make sites',
-      text: 'Our lead sites carry organization and FAQ structured data, answer-first FAQ sections and consistent business details on every page, the groundwork AI answers rely on.',
-      points: ['Organization and FAQ schema', 'Answer-first FAQ content', 'Consistent business details', 'A page for every service area'],
-    },
-    faqs: [
-      { q: 'What is the difference between GEO and AEO?', a: 'Generative engine optimization (GEO) is about being cited by AI tools like ChatGPT and Gemini. Answer engine optimization (AEO) is about being the direct answer in places like Google AI Overviews and voice search. The work overlaps heavily.' },
-      { q: 'Can you guarantee ChatGPT will recommend me?', a: 'No one can. AI tools decide what to show. We do the work that makes your business the clear, credible answer for your trade in your area.' },
-      { q: 'Is this separate from SEO?', a: 'It builds on the same foundations: a clear site, structured data and a solid reputation. We run them together.' },
-    ],
-  },
-};
 
 // ---------- Results ----------
 export const results = {
