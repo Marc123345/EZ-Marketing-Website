@@ -246,7 +246,7 @@ function footer() {
                 <div class="pl-footer-cta__copy">
                   <span class="pl-footer-cta__kicker">Free 30-minute strategy call</span>
                   <h2 class="title">We run the ads. You run the crew.</h2>
-                  <p>Exclusive, pre-qualified jobs in your territory. No contracts, cancel anytime.</p>
+                  <p>Exclusive, pre-qualified leads in your service area. No contracts, cancel anytime.</p>
                 </div>
                 <button type="button" class="circle-btn" data-booking="" aria-label="${CTA}">
                   <img src="${img('icons/arrow2.png')}" alt="">
@@ -257,7 +257,7 @@ function footer() {
               <div class="pl-footer__grid ez-footer__grid">
                 <div class="pl-footer__brand">
                   ${logo('pl-footer__logo')}
-                  <p>The Facebook Ads agency for roofing contractors who do coatings and paving contractors. Exclusive, pre-qualified jobs in your territory.</p>
+                  <p>The Facebook Ads agency for roofing contractors who do coatings and paving contractors. Exclusive, pre-qualified leads in your service area.</p>
                   <ul class="pl-footer__trust">
                     <li><i class="fa-solid fa-location-dot"></i> ${esc(site.legalName)}<br>${esc(addressLine())}</li>
                     ${site.phone ? `<li><i class="fa-solid fa-phone"></i> <a href="tel:${site.phone.replace(/[^+\d]/g, '')}">${esc(site.phone)}</a></li>` : ''}

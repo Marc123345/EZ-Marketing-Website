@@ -304,7 +304,7 @@ pages.push({
     <div class="row g-5 align-items-center">
       <div class="col-lg-7">
         <span class="ez-kicker">Facebook Ads for roof coating &amp; paving contractors</span>
-        <h1 class="ezh3__title">Facebook Ads for roofers and pavers. <span>Real jobs, your territory, nobody else's.</span></h1>
+        <h1 class="ezh3__title">Facebook Ads for roofers and pavers. <span>Real jobs in your area. Every lead is yours alone.</span></h1>
         <p class="ez-hero-lead">One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
         <div class="ez-hero-actions">
           <button type="button" class="plh-btn" data-booking="">
@@ -360,7 +360,7 @@ ${companySection({
   id: 'roofcoat-leads',
   mark: roofcoatMark(),
   kicker: 'Company 01 &middot; For roof coating contractors',
-  title: 'RoofCoat Leads: <span class="ez-accent">exclusive roof coating leads in your territory</span>',
+  title: 'RoofCoat Leads: <span class="ez-accent">exclusive roof coating leads in your area</span>',
   intro: 'RoofCoat Leads runs Facebook Ads for roofing companies doing silicone, acrylic, TPO and metal restoration, mostly commercial and industrial. Leads are screened for property type, timeline and budget, then sent to the contractor by SMS and email in real time.',
   photo: img('roof/crew-full-service.jpg'),
   photoAlt: 'Roof coating crew restoring a commercial roof',
@@ -551,7 +551,7 @@ ${pageTitle('Contact', img('paving/booked-calendar-phone-dark.jpg'), { h1: 'Book
         <div class="ez-contact-card">
           <h3>On the call</h3>
           <ul class="ez-checks">
-            <li><i class="fa-solid fa-circle-check"></i>Your territory and whether it is open</li>
+            <li><i class="fa-solid fa-circle-check"></i>Your service area and the jobs you cover</li>
             <li><i class="fa-solid fa-circle-check"></i>The jobs you want more of</li>
             <li><i class="fa-solid fa-circle-check"></i>What a campaign in your trade looks like</li>
             <li><i class="fa-solid fa-circle-check"></i>An honest answer on fit</li>

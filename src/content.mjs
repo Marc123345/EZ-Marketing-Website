@@ -19,7 +19,7 @@ export const site = {
   roofcoatUrl: 'https://roofcoatleads.com',
   pavingUrl: 'https://pavinglead.com',
   description:
-    'EZ Marketing runs Facebook Ads for roof coating contractors and paving contractors. The ads bring in exclusive, pre-qualified jobs in your territory.',
+    'EZ Marketing runs Facebook Ads for roof coating contractors and paving contractors. The ads bring in exclusive, pre-qualified leads in your service area.',
 };
 
 export const nav = [
@@ -75,8 +75,8 @@ export const method = [
     tech: 'Multi-question Lead Ads forms and a qualification funnel tuned per trade.',
   },
   {
-    title: 'Territory-locked targeting',
-    text: 'Ads only run where your crew works. You get your territory and nobody else in your trade gets those leads from us.',
+    title: 'Service-area targeting',
+    text: 'Ads only run where your crew works, so every lead is inside your travel range, and each one goes to you alone.',
     tech: 'Radius and ZIP targeting drawn around your service area and travel range.',
   },
   {
@@ -96,7 +96,7 @@ export const tradeCards = {
     label: 'I do roof coatings',
     href: '#roofcoat-leads',
     title: 'RoofCoat Leads',
-    text: 'Exclusive commercial and residential coating leads in your territory.',
+    text: 'Exclusive commercial and residential coating leads in your service area.',
     photo: '/assets/images/roof/silicone.jpg',
   },
   paving: {
@@ -110,7 +110,7 @@ export const tradeCards = {
 
 export const homeFaqs = [
   { q: 'Who do you work with?', a: 'Two trades only: roofing contractors who do coatings (silicone, acrylic, TPO and metal restoration) and paving contractors (asphalt, sealcoating and chip seal). If that is not you, we are not the right agency.' },
-  { q: 'Are the leads exclusive?', a: 'Yes. Leads from your campaign go to you and nobody else. We lock the targeting to your territory, so we are not selling the same job to the contractor down the road.' },
+  { q: 'Are the leads exclusive?', a: 'Yes. Every lead from your campaign goes to you and nobody else. We never sell the same lead to another contractor.' },
   { q: 'How fast will I get my first lead?', a: 'Most clients get their first lead inside 48 hours of the campaign going live.' },
   { q: 'Do I have to sign a contract?', a: 'No. There are no contracts. You can cancel anytime.' },
   { q: 'How much does it cost?', a: 'Plans and pricing live on roofcoatleads.com and pavinglead.com. On the strategy call we look at your territory and job types and tell you straight whether it makes sense.' },
@@ -119,7 +119,7 @@ export const homeFaqs = [
 // ---------- Roofing (RoofCoat Leads) ----------
 export const roofing = {
   get: [
-    { title: 'Your territory, locked', text: 'Exclusive commercial and residential coating leads inside the area you actually work. Nobody else gets them from us.' },
+    { title: 'Leads only you get', text: 'Commercial and residential coating leads inside the area you actually work. Each lead goes to you and nobody else.' },
     { title: 'Screened before they reach you', text: 'Every lead is screened for property type, timeline and budget, so you spend your day on estimates, not tire-kickers.' },
     { title: 'Delivered in real time', text: 'New leads land on your phone by SMS and email the moment they qualify, with the answers attached.' },
     { title: 'First lead inside 48 hours', text: 'Most clients get their first lead within 48 hours of launch. No six-month ramp-up.' },
@@ -149,7 +149,7 @@ export const paving = {
   get: [
     { title: 'Booked estimates', text: 'Qualified homeowners and property managers put on your calendar, so your crew goes out to quote real jobs.' },
     { title: 'Full job info', text: 'Every lead comes with the job details up front: what they need paved or sealed and where. No guessing before you drive out.' },
-    { title: 'Your territory only', text: 'Exclusive leads in your area. We do not sell the same driveway to five other pavers.' },
+    { title: 'Leads only you get', text: 'Each lead goes to you alone. We do not sell the same driveway to five other pavers.' },
     { title: 'Keep the calendar full', text: 'Volume that keeps trucks moving, from driveways to parking lots, without door knocking.' },
   ],
   // Paving-side figures, as published on pavinglead.com.
