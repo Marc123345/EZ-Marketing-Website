@@ -101,7 +101,7 @@
       document.body.appendChild(s);
     }
     if (document.fonts && document.fonts.ready) {
-      document.fonts.load('500 1em "Beatrice Trial"').then(function () { return document.fonts.ready; }).then(start, start);
+      document.fonts.load('400 1em "Attack"').then(function () { return document.fonts.ready; }).then(start, start);
       setTimeout(start, 2500); // never hold the animations back for a slow font CDN
     } else {
       start();

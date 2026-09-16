@@ -34,23 +34,11 @@ export function secTitle(main, accent) {
   return `<h2 class="title tx-title sec_title tm-itm-title tm-itm-anim">${main} <span>${accent}</span></h2>`;
 }
 
-export function pageTitle(title, bg, { h1 = title, lead = '', crumbs = [] } = {}) {
-  const trail = [...crumbs, { label: title }]
-    .map((c) => (c.href ? `<li><a href="${c.href}">${c.label}</a></li>` : `<li>${c.label}</li>`))
-    .join('');
+// Inner pages have no hero banner: just room for the fixed header, with the H1 kept for
+// search engines and screen readers.
+export function pageTitle(title, bg, { h1 = title } = {}) {
   return `
-<section class="page-title ez-page-title" style="background-image: url(${bg});">
-  <div class="auto-container">
-    <div class="title-outer text-center">
-      <ul class="page-breadcrumb">
-        <li><a href="/">Home</a></li>
-        ${trail}
-      </ul>
-      <h1 class="title">${h1}</h1>
-      ${lead ? `<p class="ez-page-title__lead">${lead}</p>` : ''}
-    </div>
-  </div>
-</section>`;
+<div class="ez-page-top"><h1 class="visually-hidden">${h1.replace(/<[^>]+>/g, '')}</h1></div>`;
 }
 
 export function disclaimer(text = DISCLAIMER, cls = '') {
@@ -128,8 +116,7 @@ function head({ title, description, path, ogImage, schema = [] }) {
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site.url}${ogImage}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
-<link href="https://fonts.cdnfonts.com/css/beatrice-display-trial" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/attack.woff" as="font" type="font/woff" crossorigin>
 <link href="${v('/assets/css/bootstrap.min.css')}" rel="stylesheet">
 <link href="${v('/assets/css/style.css')}" rel="stylesheet">
 <link href="${v('/assets/css/pl.css')}" rel="stylesheet">
@@ -266,7 +253,7 @@ function footer() {
                 </div>
                 ${colOut('Our Companies', [['RoofCoat Leads', site.roofcoatUrl], ['Paving Leads', site.pavingUrl]])}
                 ${col('EZ Marketing', [['Home', '/'], ['Our Companies', '/#roofcoat-leads'], ['Results', '/results']])}
-                ${col('Company', [['About', '/about'], ['Team', '/about#team'], ['Contact', '/contact']])}
+                ${col('Company', [['About', '/about'], ['Leadership', '/about#team'], ['Contact', '/contact']])}
               </div>
 
               <div class="ez-footer__brands">

@@ -302,7 +302,7 @@ pages.push({
   <div class="ezh3__grid" aria-hidden="true"></div>
   <div class="container">
     <div class="row g-5 align-items-center">
-      <div class="col-lg-7">
+      <div class="col-lg-6">
         <span class="ez-kicker">Facebook Ads for roof coating &amp; paving contractors</span>
         <h1 class="ezh3__title">Facebook Ads for roofers and pavers. <span>Real jobs in your area. Every lead is yours alone.</span></h1>
         <p class="ez-hero-lead">One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
@@ -315,13 +315,12 @@ pages.push({
         </div>
         <ul class="ez-support">${C.supportLines.map((l) => `<li><i class="fa-solid fa-check"></i>${esc(l)}</li>`).join('')}</ul>
       </div>
-      <div class="col-lg-5">
-        <div class="ezh3__mark" aria-hidden="true">
-          <span class="ezh3__glow"></span>
-          <span class="ezh3__ring ezh3__ring--1"></span>
-          <span class="ezh3__ring ezh3__ring--2"><i></i></span>
-          <span class="ezh3__ring ezh3__ring--3"><i></i></span>
-          <img src="${img('ez/logo.svg')}" alt="">
+      <div class="col-lg-6">
+        <div class="ezh3__stage">
+          <span class="ezh3__stage-glow" aria-hidden="true"></span>
+          <div class="ezh3__screen">
+            <video src="/assets/videos/ez-hero.mp4" poster="/assets/videos/ez-hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="EZ Marketing 3D logo animation"></video>
+          </div>
         </div>
       </div>
     </div>
@@ -350,7 +349,7 @@ ${section(
           <a class="ez-org__node" href="#roofcoat-leads">${roofcoatMark()}<span>Roof coating contractors</span></a>
           <a class="ez-org__node" href="#paving-leads">${pavingMark()}<span>Paving contractors</span></a>
         </div>
-        ${btn('Meet the team', { href: '/about#team' })}
+        ${btn('Meet our leadership', { href: '/about#team' })}
       </div>
     </div>`,
   { cls: 'ez-band' }
@@ -417,7 +416,7 @@ ${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You R
 
 
 ${section(`
-    ${heading('The Team', ['The People Behind', 'EZ Marketing'])}
+    ${heading('Leadership', ['The People Behind', 'EZ Marketing'])}
     ${teamGrid()}
     <div class="text-center mt-5">${btn('About EZ Marketing', { href: '/about' })}</div>`)}
 
@@ -452,7 +451,7 @@ ${pageTitle('About', img('paving/team-computers-night-office.jpg'), { h1: 'We on
 
 ${section(
   `
-    ${heading('The Team', ['The People Behind', 'Your Campaigns'])}
+    ${heading('Leadership', ['The People Behind', 'Your Campaigns'])}
     ${teamGrid()}`,
   { id: 'team', cls: 'ez-band' }
 )}
@@ -468,66 +467,17 @@ ${section(
 )}`,
 });
 
-// 9. Results
+// 9. Results: testimonials only
 pages.push({
   file: 'results.html',
   path: '/results',
   title: 'Results',
-  description: 'Results from EZ Marketing Facebook Ads campaigns for roof coating and paving contractors: stats, recent campaigns, case studies and testimonials.',
+  description: 'Video testimonials from roof coating and paving contractors running jobs from EZ Marketing Facebook Ads campaigns.',
   body: `
-${pageTitle('Results', img('paving/ad-metrics-ctr-quality-score-screen.jpg'), { h1: 'Millions in jobs for contractors <span>who used to buy shared leads</span>' })}
-
-${section(
-  `
-    ${statsRow(C.results.headline, 'mt-0 ez-stats-top')}
-    ${disclaimer(DISCLAIMER, 'ez-disclaimer--center')}`
-)}
-
-${section(
-  `
-    ${heading('Recent Campaigns', ['Fast Starts,', 'Real Inquiries'])}
-    <div class="row g-4">
-      <div class="col-lg-6 wow fadeInUp">
-        <div class="ez-case ez-h100">
-          <span class="ez-case__tag">Six recent campaigns</span>
-          <h3>Roughly 300 unique commercial inquiries</h3>
-          <p>Across six recent campaigns, the lead sheets show roughly 300 unique commercial inquiries, each one a property owner who filled in the qualification form.</p>
-        </div>
-      </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-        <div class="ez-case ez-h100">
-          <span class="ez-case__tag">${esc(C.results.idaho.tag)}</span>
-          <h3>${esc(C.results.idaho.title)}</h3>
-          <p>${esc(C.results.idaho.text)}</p>
-        </div>
-      </div>
-    </div>`,
-  { cls: 'pt-0' }
-)}
-
-${section(
-  `
-    <div class="ez-results-head">${roofcoatMark()}<a href="${site.roofcoatUrl}" target="_blank" rel="noopener">roofcoatleads.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
-    ${statsRow(C.roofing.stats, 'mt-0')}
-    <div class="ez-case wow fadeInUp">
-      <span class="ez-case__tag">Roof coating case study</span>
-      <h3>${esc(C.roofing.caseStudy.title)}</h3>
-      <p>${esc(C.roofing.caseStudy.text)}</p>
-      ${outLink('Read the case study', C.roofing.caseStudy.href)}
-    </div>`,
-  { cls: 'ez-band' }
-)}
-${videoSection(C.roofing.videos, { sub: 'Roof Coating', title: ['Coating Roofers', 'on the System'], id: 'roofing' })}
-
-${section(
-  `
-    <div class="ez-results-head">${pavingMark()}<a href="${site.pavingUrl}" target="_blank" rel="noopener">pavinglead.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
-    ${statsRow(C.paving.stats, 'mt-0')}
-    <p class="ez-note text-center">Paving-side figures, as published on pavinglead.com.</p>`,
-  { cls: 'ez-band' }
-)}
-${videoSection(C.paving.videos, { sub: 'Paving', title: ['Paving Crews', 'on the System'], id: 'paving' })}
-${writtenSlider(C.paving.written, { sub: 'Paving Testimonials', title: ['What Paving Contractors', 'Say'] })}`,
+${pageTitle('Results', '', { h1: 'Results: contractor testimonials' })}
+${videoSection(C.roofing.videos, { sub: 'RoofCoat Leads', title: ['Roof Coating', 'Contractors'], id: 'roofing' })}
+${videoSection(C.paving.videos, { sub: 'Paving Leads', title: ['Paving', 'Contractors'], id: 'paving' })}
+${writtenSlider(C.paving.written, { sub: 'Testimonials', title: ['What Paving Contractors', 'Say'] })}`,
 });
 
 // 10. Contact
