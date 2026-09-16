@@ -522,3 +522,93 @@ html.ez-loading, html.ez-loading body { overflow: hidden; }
 @media (max-width: 1599.98px) and (min-width: 992px) { .ez-steps > .col { flex: 0 0 33.333%; max-width: 33.333%; } }
 
 @media (max-width: 991.98px) { .ez-co__head, .ez-co--alt .ez-co__head { grid-template-columns: 1fr !important; } .ez-creative .ez-h2, .ez-creative .sec_title { font-size: clamp(30px, 7.5vw, 44px); } }
+
+/* =====================================================================
+   Compact pass: tighter vertical rhythm, smaller headings and media
+   ===================================================================== */
+:root { --ez-gap: clamp(44px, 4.5vw, 72px); }
+.section-padding { padding: var(--ez-gap) 0 !important; }
+.sec-title { margin-bottom: 32px !important; }
+.sec-title.mb-60 { margin-bottom: 36px !important; }
+.sec-title .title, .sec_title { font-size: clamp(28px, 2.8vw, 46px) !important; line-height: 1.12 !important; }
+.ez-intro, .rc-sec-intro { font-size: 16px; margin-top: 10px; }
+.ez-lead-p { font-size: 16px; line-height: 1.65; margin: 12px 0; }
+
+/* Hero */
+.plh { min-height: 540px; }
+.plh__title { margin-bottom: 18px; }
+.plh__icon-bx { margin-bottom: 24px; }
+
+/* Testimonial videos: shorter cards */
+.pl-reel__media { aspect-ratio: 4 / 4.6; }
+.pl-reel__body { padding: 18px; gap: 14px; }
+.pl-reel__body p { font-size: 15px; }
+.pl-reels .row.g-4 { --bs-gutter-y: 1rem; --bs-gutter-x: 1rem; }
+
+/* Stats band */
+.ez-proof { padding: 36px 0 !important; }
+.pl-stat { padding-top: 22px; }
+.pl-stat__value { font-size: clamp(34px, 3.4vw, 48px) !important; }
+.ez-disclaimer--center { margin-top: 16px; }
+
+/* Who we are */
+.ez-who-cards { margin: 24px auto 22px; max-width: 900px; }
+.ez-who-card__img img { aspect-ratio: 16 / 10; }
+.ez-who-card__body { padding: 14px 20px; }
+
+/* Company panels */
+.ez-co { padding: 8px 0 !important; }
+.ez-co__panel { padding: clamp(36px, 3.6vw, 56px) 0 !important; }
+.ez-co__title { font-size: clamp(26px, 2.6vw, 42px); margin-bottom: 12px; }
+.ez-co__intro p { font-size: 16px; margin-bottom: 20px; }
+.ez-co__mark { margin-bottom: 14px; }
+.ez-co__stats div { padding: 18px 20px; }
+.ez-co__stats strong { font-size: clamp(30px, 2.8vw, 42px); }
+.ez-co__photo { margin-top: 30px; }
+.ez-co__photo img { aspect-ratio: 21 / 7; }
+.ez-co__list { margin-top: 28px; }
+.ez-co__list li { padding-top: 20px; }
+.ez-co__list h3 { font-size: 19px; margin: 6px 0; }
+.ez-co__list p { font-size: 14px; }
+
+/* How it works */
+.work-process-inner-2 .line { margin: 0 0 12px; }
+.working-block-two .inner-block { padding: 26px 24px !important; }
+.working-block-two .inner-block .icon-box { margin-bottom: 14px; }
+.working-block-two .inner-block .title { font-size: 19px; margin-bottom: 8px; }
+.working-block-two .inner-block .text { font-size: 14px; line-height: 1.6; }
+.how-it-client-wrapper { margin-top: 30px; }
+
+/* Leadership + paid media */
+.ez-team__photo img { aspect-ratio: 1 / 1.05; }
+.ez-team__body { padding: 14px 18px 16px; }
+.ez-team__body h4 { font-size: 18px; margin-bottom: 2px; }
+.ez-panel .text-center.mt-5 { margin-top: 24px !important; }
+.ez-creative__photo img { aspect-ratio: 16 / 11; }
+.ez-creative .ez-checks li { padding: 4px 0; font-size: 15px; }
+
+/* FAQ */
+.faq-block-two { margin-bottom: 10px; }
+.faq-block-two .title-box { padding-top: 14px !important; padding-bottom: 14px !important; }
+
+/* Footer */
+.pl-footer { margin-top: var(--ez-gap); }
+.pl-footer .footer-lets-talk { padding-top: 36px !important; padding-bottom: 36px !important; }
+.pl-footer__grid { padding-top: 40px !important; padding-bottom: 20px !important; }
+.ez-footer__brands { margin-top: 20px; padding: 14px 20px; }
+
+/* Inner pages */
+.ez-page-top { height: 88px; }
+.ez-page-top + section, .ez-page-top + .pl-reels { padding-top: 36px !important; }
+.ez-about-intro .sec_title { margin-bottom: 8px; }
+.ez-book__choice { padding: 16px 20px; }
+.ez-contact-card { padding: 26px; }
+@media (max-width: 767.98px) {
+  :root { --ez-gap: 40px; }
+  .pl-reel__media { aspect-ratio: 4 / 4.4; }
+  .ez-co__photo img { aspect-ratio: 16 / 9; }
+}
+.working-block-two .step-btn { margin-bottom: 16px !important; }
+.faq-block-two .title-box { min-height: 0; }
+.faq-block-two .title-box .content { padding-top: 4px; padding-bottom: 4px; }
+.faq-block-two { margin-bottom: 8px !important; }
