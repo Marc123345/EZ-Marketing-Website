@@ -359,7 +359,7 @@ pages.push({
     <div class="plh__marketing-icon"><i class="fa-solid fa-bullhorn"></i></div>
     <h6>Meta Ads for Roofing &amp; Paving</h6>
   </div>
-  <img class="plh__mobile-art" src="${img('paving/hero-bg.jpg')}" width="1916" height="821" alt="">
+  <img class="plh__mobile-art" src="${img('ez/hero-bg.jpg')}" width="1916" height="821" alt="">
 </section>
 
 ${videoSection([...C.roofing.videos, ...C.paving.videos], { sub: 'Testimonials', title: ['Real Contractors.', 'Real Jobs.'], intro: 'Coating roofers and paving contractors running jobs from our campaigns.' })}

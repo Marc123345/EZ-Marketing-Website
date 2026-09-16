@@ -345,7 +345,13 @@ i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brand
 .ez-panel + .ez-panel { margin-top: 30px; }
 
 /* ---------- Home hero: same as Paving Leads (pl.css .plh), with the Paving Leads hero artwork ---------- */
-.plh { background-image: url(../images/paving/hero-bg.jpg); }
+.plh { background-image: url(../images/ez/hero-bg.jpg); }
+/* The artwork has people on both sides: a dark wash on the left keeps the headline readable */
+.plh::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(0, 24, 32, .95) 0%, rgba(0, 24, 32, .88) 30%, rgba(0, 24, 32, .45) 48%, rgba(0, 24, 32, 0) 62%), linear-gradient(180deg, rgba(0, 24, 32, .55) 0%, rgba(0, 24, 32, 0) 22%); }
+.plh::after { z-index: 1; background: linear-gradient(0deg, #001820 0%, rgba(0, 24, 32, 0) 100%) !important; }
+.plh__campaign { left: 56%; top: 20%; }
+.plh__marketing { right: 3%; bottom: 10%; }
+@media (max-width: 991.98px) { .plh::before { display: none; } }
 .plh__title span, .plh__badge-core, .plh__marketing-icon { color: inherit; }
 .plh__title span { color: var(--ez-primary); }
 .plh__badge-core, .plh__marketing-icon { color: var(--ez-bg); }
