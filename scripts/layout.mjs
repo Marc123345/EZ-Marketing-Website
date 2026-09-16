@@ -265,7 +265,7 @@ function footer() {
                   </ul>
                 </div>
                 ${colOut('Our Companies', [['RoofCoat Leads', site.roofcoatUrl], ['Paving Leads', site.pavingUrl]])}
-                ${col('EZ Marketing', [['Home', '/'], ['Facebook Ads', '/facebook-ads'], ['Results', '/results']])}
+                ${col('EZ Marketing', [['Home', '/'], ['Our Companies', '/#roofcoat-leads'], ['Results', '/results']])}
                 ${col('Company', [['About', '/about'], ['Team', '/about#team'], ['Contact', '/contact']])}
               </div>
 

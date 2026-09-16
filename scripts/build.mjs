@@ -233,24 +233,6 @@ function methodSteps(items, { sub = 'How It Works', title = ['The System Behind'
 </section>`;
 }
 
-function adMock({ photo, text, headline, cta, domain }) {
-  return `
-        <div class="pl-fbad">
-          <div class="pl-fbad__head">
-            <span class="pl-fbad__avatar ez-fbad-avatar"><i class="fa-solid fa-helmet-safety"></i></span>
-            <div><strong>Your Company</strong><span>Sponsored &middot; <i class="fa-solid fa-earth-americas"></i></span></div>
-            <i class="fa-solid fa-ellipsis pl-fbad__more"></i>
-          </div>
-          <p class="pl-fbad__text">${esc(text)}</p>
-          <div class="pl-fbad__media"><img src="${photo}" alt="${esc(headline)}"></div>
-          <div class="pl-fbad__link">
-            <div><span>${domain}</span><strong>${esc(headline)}</strong></div>
-            <span class="pl-fbad__cta">${cta}</span>
-          </div>
-          <div class="pl-fbad__actions"><span><i class="fa-regular fa-thumbs-up"></i> Like</span><span><i class="fa-regular fa-comment"></i> Comment</span><span><i class="fa-solid fa-share"></i> Share</span></div>
-        </div>`;
-}
-
 // One sub-company, explained on the home page and linked out to its own website.
 function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, get, stats, statsNote = '', quote, url, host, reverse = false }) {
   return `
@@ -285,7 +267,6 @@ function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, 
 }
 
 function teamGrid() {
-  const cr = C.about.creative;
   return `
     <div class="row g-4 justify-content-center">
       ${C.about.team
@@ -293,7 +274,7 @@ function teamGrid() {
           (m, i) => `
       <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay="${delay(i)}">
         <div class="ez-team ez-team--photo">
-          <div class="ez-team__photo"><img src="${m.photo}" alt="${esc(m.name)}" loading="lazy"></div>
+          <div class="ez-team__photo"><img src="${m.photo}" alt="${esc(m.name)}, ${esc(m.title)}" loading="lazy"></div>
           <div class="ez-team__body">
             <h4>${esc(m.name)}</h4>
             <p class="ez-team__role">${esc(m.title)}</p>
@@ -302,16 +283,6 @@ function teamGrid() {
       </div>`
         )
         .join('')}
-      <div class="col-xl-6 col-md-12 wow fadeInUp" data-wow-delay=".5s">
-        <div class="ez-team ez-team--photo ez-team--wide">
-          <div class="ez-team__photo"><img src="${cr.photo}" alt="${esc(cr.names)}" loading="lazy"></div>
-          <div class="ez-team__body">
-            <h4>${esc(cr.names)}</h4>
-            <div class="ez-team__roles">${cr.roles.map((r) => `<span><strong>${esc(r.name)}</strong> ${esc(r.title)}</span>`).join('')}</div>
-            <p>${esc(cr.text)}</p>
-          </div>
-        </div>
-      </div>
     </div>`;
 }
 
@@ -327,45 +298,29 @@ pages.push({
   description: site.description,
   schema: [faqSchema(C.homeFaqs)],
   body: `
-<section class="ezh" aria-label="EZ Marketing">
-  <div class="ezh__glow" aria-hidden="true"></div>
-  <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-xl-6 col-lg-6">
-        <span class="ez-kicker">EZ Marketing &middot; The Facebook Ads agency for roof coating &amp; paving contractors</span>
-        <h1 class="ezh__title">Facebook Ads for roofers and pavers. <span>Real jobs, your territory, nobody else's.</span></h1>
-        <p class="ez-hero-lead">EZ Marketing runs Facebook and Instagram campaigns for two trades, through two companies we built: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
-        <div class="ez-hero-actions">
-          <button type="button" class="plh-btn" data-booking="">
-            <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
-            <span class="plh-btn__label">${CTA}</span>
-            <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
-          </button>
-        </div>
-        <ul class="ez-support">${C.supportLines.map((l) => `<li><i class="fa-solid fa-check"></i>${esc(l)}</li>`).join('')}</ul>
+<section class="ezh2" aria-label="EZ Marketing">
+  <div class="container ezh2__container">
+    <div class="ezh2__content">
+      <span class="ez-kicker">EZ Marketing &middot; Facebook Ads for roof coating &amp; paving contractors</span>
+      <h1 class="ezh2__title">Facebook Ads for roofers and pavers. <span>Real jobs, your territory, nobody else's.</span></h1>
+      <p class="ez-hero-lead">One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
+      <div class="ez-hero-actions">
+        <button type="button" class="plh-btn" data-booking="">
+          <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
+          <span class="plh-btn__label">${CTA}</span>
+          <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
       </div>
-      <div class="col-xl-6 col-lg-6">
-        <p class="ezh__pick">Our two companies</p>
-        <div class="ezh__trades">
-          ${['roofing', 'paving']
-            .map((k) => {
-              const t = C.tradeCards[k];
-              return `
-          <a class="ez-trade" href="${t.href}">
-            <span class="ez-trade__img"><img src="${t.photo}" alt=""></span>
-            <span class="ez-trade__body">
-              <span class="ez-trade__label">${t.label}</span>
-              <strong>${t.title}</strong>
-              <span class="ez-trade__text">${t.text}</span>
-              <span class="ez-trade__go">Learn about ${t.title} <i class="fa-solid fa-arrow-down"></i></span>
-            </span>
-          </a>`;
-            })
-            .join('')}
-        </div>
+      <ul class="ez-support">${C.supportLines.map((l) => `<li><i class="fa-solid fa-check"></i>${esc(l)}</li>`).join('')}</ul>
+      <div class="ezh2__inline-badges">
+        <a class="ezh2__badge ezh2__badge--inline ezh2__badge--paving" href="#paving-leads">${pavingMark()}<span>For paving contractors <i class="fa-solid fa-arrow-down"></i></span></a>
+        <a class="ezh2__badge ezh2__badge--inline ezh2__badge--roof" href="#roofcoat-leads">${roofcoatMark()}<span>For roof coating contractors <i class="fa-solid fa-arrow-down"></i></span></a>
       </div>
     </div>
   </div>
+  <a class="ezh2__badge ezh2__badge--paving" href="#paving-leads">${pavingMark()}<span>For paving contractors <i class="fa-solid fa-arrow-down"></i></span></a>
+  <a class="ezh2__badge ezh2__badge--roof" href="#roofcoat-leads">${roofcoatMark()}<span>For roof coating contractors <i class="fa-solid fa-arrow-down"></i></span></a>
+  <img class="ezh2__mobile-art" src="${img('ez/hero-combined.jpg')}" width="2200" height="821" alt="">
 </section>
 
 ${section(
@@ -520,65 +475,6 @@ ${section(
     </div>`,
   { cls: 'pt-0' }
 )}`,
-});
-
-// 3. Facebook Ads
-const fbAds = [
-  { photo: img('roof/silicone.jpg'), text: 'Aging commercial roof? Extend your roof life by 15+ years for a fraction of replacement cost. Free roof assessment for property owners.', headline: 'Commercial Roof Coating', cta: 'Get Quote', domain: 'YOURROOFINGCO.COM' },
-  { photo: img('paving/driveway-blacktop-winter-home.jpg'), text: 'Cracked, faded driveway? Get a fresh blacktop driveway before winter. Free on-site estimates this week only.', headline: 'Free Driveway Paving Estimate', cta: 'Get Quote', domain: 'YOURPAVINGCO.COM' },
-  { photo: img('roof/tpo-repair.jpg'), text: 'Leaking flat roof? Get it sealed permanently, faster and cheaper than replacement.', headline: 'Flat Roof Leak Repair', cta: 'Learn More', domain: 'YOURROOFINGCO.COM' },
-];
-pages.push({
-  file: 'facebook-ads.html',
-  path: '/facebook-ads',
-  title: 'Facebook Ads for Roof Coating & Paving Contractors',
-  description: 'How EZ Marketing runs Facebook Ads for roof coating and paving contractors: real job-site creative, pre-qualification forms, territory-locked targeting and real-time lead delivery.',
-  schema: [faqSchema(C.fbFaqs)],
-  body: `
-${pageTitle('Facebook Ads', img('paving/hands-scrolling-feed-dark-warm.jpg'), { h1: 'Facebook Ads that send exclusive jobs to your phone, <span>not to five competitors</span>', lead: 'Facebook Ads that bring coating roofers and paving contractors exclusive jobs, every week.' })}
-
-${section(
-  `
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-6 wow fadeInUp">
-        ${subTitle('Lead Cost')}
-        ${secTitle('Exclusive Leads for Less', 'Than Shared Ones')}
-        <p class="ez-lead-p">Shared lead platforms sell the same homeowner to several contractors, then charge each of them for it. Our campaigns reach property owners in your territory directly and send every lead to you alone.</p>
-        <p class="ez-note">${esc(C.leadCost.note)}</p>
-      </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-        <div class="ez-compare">
-          <div class="ez-compare__col ez-compare__col--us"><small>Our campaigns</small><strong>${C.leadCost.ours}</strong><span>per exclusive lead</span></div>
-          <div class="ez-compare__vs">vs</div>
-          <div class="ez-compare__col"><small>Shared platforms</small><strong>${C.leadCost.shared}</strong><span>per shared lead</span></div>
-        </div>
-      </div>
-    </div>`
-)}
-
-${section(`${heading('The Method', ['Five Parts,', 'One Job: Your Phone Ringing'], 'For the technical buyer, the gear icon shows what runs under the hood.')}${cardGrid(C.method, { cols: 'col-xl-4 col-lg-6 col-md-6' })}`, { cls: 'ez-band' })}
-
-<section class="pl-ads section-padding">
-  <div class="container">
-    ${heading('Ad Creative', ['Ads That Look Like', 'the Work'], 'Built around real jobs, written for the owner scrolling past. Every campaign is made for your company, trade and territory.')}
-    <div class="row g-4">
-      ${fbAds.map((a, i) => `<div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="${delay(i, 2)}">${adMock(a)}</div>`).join('')}
-    </div>
-    <p class="pl-ads__note">Example creatives.</p>
-  </div>
-</section>
-
-${section(
-  `
-    ${heading('Packaged per Trade', ['See It in', 'Your Trade'])}
-    <div class="row g-4">
-      <div class="col-md-6"><a class="ez-brandlink" href="${site.roofcoatUrl}" target="_blank" rel="noopener">${roofcoatMark()}<span>Facebook Ads for coating roofers <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a></div>
-      <div class="col-md-6"><a class="ez-brandlink" href="${site.pavingUrl}" target="_blank" rel="noopener">${pavingMark()}<span>Facebook Ads for paving contractors <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a></div>
-    </div>`,
-  { cls: 'pt-0' }
-)}
-
-${faqSection(C.fbFaqs, { title: ['Facebook Ads', 'Questions'] })}`,
 });
 
 // 9. Results

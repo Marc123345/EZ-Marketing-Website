@@ -4,7 +4,7 @@ Parent site for EZ Marketing: Facebook Ads for roof coating and paving contracto
 
 - `npm run build` writes `dist/` (Vercel settings are in `vercel.json`)
 - `npm run dev` builds and serves on http://localhost:5270
-- Pages: Home (EZ Marketing, then its two companies RoofCoat Leads and Paving Leads, each linking to its own website), Facebook Ads, Results, About (with team), Contact
+- Pages: Home (EZ Marketing, then its two companies RoofCoat Leads and Paving Leads, each linking to its own website), Results, About (with team), Contact
 - Copy and data: `src/content.mjs`. Pages: `scripts/build.mjs`. Header, footer and booking: `scripts/layout.mjs`
 - Styles: template `style.css`, shared `pl.css`, EZ-specific `ez.css`. Behaviour: `pl.js` plus `ez.js` (booking)
 

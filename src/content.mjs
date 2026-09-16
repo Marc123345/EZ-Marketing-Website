@@ -31,7 +31,6 @@ export const nav = [
       { href: '/#paving-leads', label: 'Paving Leads' },
     ],
   },
-  { href: '/facebook-ads', label: 'Facebook Ads' },
   { href: '/results', label: 'Results' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -176,20 +175,6 @@ export const paving = {
   ],
 };
 
-// ---------- Facebook Ads page ----------
-export const leadCost = {
-  ours: '$30–$60',
-  shared: '$80–$150',
-  note: 'Typical cost per lead on our roof coating campaigns, compared with shared lead platforms like HomeAdvisor, where the same lead also goes to other contractors.',
-};
-
-export const fbFaqs = [
-  { q: 'Why Facebook and not Google?', a: 'Coating and paving are jobs people put off until something forces the decision. Facebook and Instagram reach property owners in your territory before they start searching and comparing contractors, and Lead Ads let us screen them with questions Google search ads cannot ask.' },
-  { q: 'Do I need to make the ads?', a: 'No. We write and build the creative, preferably from footage of your real jobs. If you do not have any yet, we start with trade footage and swap in yours as it comes in.' },
-  { q: 'Who handles the ad account and budget?', a: 'Your campaign manager builds and runs the campaigns. Ad spend is paid to Meta and is separate from our fee. We walk through the budget on the strategy call.' },
-  { q: 'What happens after a lead comes in?', a: 'You get it by SMS and email right away with the answers to the qualification questions. The faster you call, the more you close.' },
-];
-
 // ---------- Results ----------
 export const results = {
   headline: [
@@ -217,19 +202,11 @@ export const about = {
     { title: 'We know the buyer', text: 'An owner-operator with a crew, a truck and a territory, burned by shared leads. We build everything around what he needs.' },
     { title: 'We know what works', text: 'Every campaign in your trade teaches us something. You get the playbook, not a test run on your budget.' },
   ],
-  // Photos: Marc and Ezra are cropped from the RoofCoat Leads and Paving Leads hero images.
   team: [
     { name: 'Ezra', title: 'Founder & CEO', photo: '/assets/images/team/ezra.jpg' },
     { name: 'Marc Friedman', title: 'Website Designer & Head of Sales, RoofCoat Leads', photo: '/assets/images/team/marc-friedman.jpg' },
+    { name: 'Dani Twillo', title: 'Head of Creative', photo: '/assets/images/team/dani-twillo.jpg' },
+    { name: 'Yael Rubinson', title: 'Creative Director', photo: '/assets/images/team/yael-rubinson.jpg' },
   ],
-  creative: {
-    names: 'Dani Twillo & Yael Rubinson',
-    roles: [
-      { name: 'Dani Twillo', title: 'Head of Creative' },
-      { name: 'Yael Rubinson', title: 'Creative Director' },
-    ],
-    text: 'Our creative team builds the ads for both companies, from roof coating jobs to fresh asphalt.',
-    photo: '/assets/images/team/dani-yael.jpg',
-  },
   quote: { text: "Ezra's team really understands our business—they're not just general marketers. They get the grit.", name: 'Yankee', company: 'Pave n Save' },
 };
