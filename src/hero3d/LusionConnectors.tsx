@@ -303,6 +303,46 @@ function Connector({
   )
 }
 
+// ─── Camera rig (from the H2H Hero3D coins) ─────────────────────────────────
+// Hero3D's camera: 45° lens and a spring that follows the pointer, so the camera drifts
+// opposite the mouse with a slight tilt. Distance is set so the cubes fill the frame at
+// a similar size to the original 17.5° / z=15 framing, with more of the wide-lens depth.
+
+const RIG_FOV = 45
+const RIG_Z = 8.5
+
+function CameraRig() {
+  const springPos = useMemo(() => new THREE.Vector2(), [])
+  const springVel = useMemo(() => new THREE.Vector2(), [])
+  const target = useMemo(() => new THREE.Vector2(), [])
+  const prev = useMemo(() => new THREE.Vector2(), [])
+  const SPRING_K = 160
+  const SPRING_DAMP = 16
+
+  useFrame(({ camera, pointer }, rawDelta) => {
+    const delta = Math.min(rawDelta, 0.05)
+    const velX = delta > 0 ? (pointer.x - prev.x) / delta : 0
+    const velY = delta > 0 ? (pointer.y - prev.y) / delta : 0
+    prev.set(pointer.x, pointer.y)
+
+    springVel.x += (-SPRING_K * (springPos.x - pointer.x) - SPRING_DAMP * springVel.x) * delta
+    springVel.y += (-SPRING_K * (springPos.y - pointer.y) - SPRING_DAMP * springVel.y) * delta
+    springPos.x += springVel.x * delta
+    springPos.y += springVel.y * delta
+    target.lerp(pointer, 0.05)
+
+    camera.position.x = THREE.MathUtils.lerp(camera.position.x, -springPos.x * 0.6, 0.05)
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, springPos.y * 0.4, 0.05)
+
+    const tiltY = target.x * 0.1 + THREE.MathUtils.clamp(velX, -1, 1) * 0.04
+    const tiltX = -target.y * 0.07 - THREE.MathUtils.clamp(velY, -1, 1) * 0.03
+    camera.rotation.y = THREE.MathUtils.lerp(camera.rotation.y, -tiltY, 0.08)
+    camera.rotation.x = THREE.MathUtils.lerp(camera.rotation.x, -tiltX, 0.08)
+  })
+
+  return null
+}
+
 // ─── Scene ────────────────────────────────────────────────────────────────────
 
 function Scene({ accent }: { accent: number }) {
@@ -365,7 +405,7 @@ export function LusionConnectors({ onReady }: { onReady?: () => void } = {}) {
   // close as desktop. R3F automatically adapts frustum width to the canvas
   // aspect, so the narrower mobile canvas just shows a tighter horizontal
   // slice of the same scene at the same apparent cube size.
-  const cameraConfig = { position: [0, 0, 15] as [number, number, number], fov: 17.5, near: 1, far: 20 }
+  const cameraConfig = { position: [0, 0, RIG_Z] as [number, number, number], fov: RIG_FOV, near: 0.1, far: 100 }
 
   return (
     <div ref={wrapRef} style={{ width: '100%', height: '100%' }}>
@@ -388,6 +428,7 @@ export function LusionConnectors({ onReady }: { onReady?: () => void } = {}) {
           intensity={1}
           castShadow
         />
+        <CameraRig />
         <Suspense fallback={null}>
           <Scene accent={accent} />
         </Suspense>

@@ -6,7 +6,7 @@ Parent site for EZ Marketing: Facebook Ads for roof coating and paving contracto
 - `npm run dev` builds and serves on http://localhost:5270
 - Pages: Home (EZ Marketing, then its two companies RoofCoat Leads and Paving Leads, each linking to its own website), Results, About (with team), Contact
 - Copy and data: `src/content.mjs`. Pages: `scripts/build.mjs`. Header, footer and booking: `scripts/layout.mjs`
-- Home hero 3D scene: `src/hero3d/LusionConnectors.tsx` (copied from the H2H site, React Three Fiber + Rapier + N8AO) mounted by `src/hero3d/index.tsx`, bundled with `npm i && npm run build:hero` into `src/assets/js/hero3d.js` (commit the bundle; Vercel does not install packages)
+- Home hero 3D scene: `src/hero3d/LusionConnectors.tsx` (H2H cubes, React Three Fiber + Rapier + N8AO, with the H2H Hero3D camera rig) mounted by `src/hero3d/index.tsx`, bundled with `npm i && npm run build:hero` into `src/assets/js/hero3d.js` (commit the bundle; Vercel does not install packages)
 - Styles: template `style.css`, shared `pl.css`, EZ-specific `ez.css`. Behaviour: `pl.js` plus `ez.js` (booking)
 
 To confirm before launch (in `site` in `src/content.mjs`): domain, full street address and ZIP, public phone and email, and a single EZ booking link (`bookingUrl`). Until that link is set, the booking step asks for the trade and loads the RoofCoat Leads or Paving Leads calendar.
