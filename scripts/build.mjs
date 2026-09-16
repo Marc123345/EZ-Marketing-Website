@@ -298,29 +298,34 @@ pages.push({
   description: site.description,
   schema: [faqSchema(C.homeFaqs)],
   body: `
-<section class="ezh2" aria-label="EZ Marketing">
-  <div class="container ezh2__container">
-    <div class="ezh2__content">
-      <span class="ez-kicker">EZ Marketing &middot; Facebook Ads for roof coating &amp; paving contractors</span>
-      <h1 class="ezh2__title">Facebook Ads for roofers and pavers. <span>Real jobs, your territory, nobody else's.</span></h1>
-      <p class="ez-hero-lead">One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
-      <div class="ez-hero-actions">
-        <button type="button" class="plh-btn" data-booking="">
-          <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
-          <span class="plh-btn__label">${CTA}</span>
-          <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
-        </button>
+<section class="ezh3" aria-label="EZ Marketing">
+  <div class="ezh3__grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <span class="ez-kicker">Facebook Ads for roof coating &amp; paving contractors</span>
+        <h1 class="ezh3__title">Facebook Ads for roofers and pavers. <span>Real jobs, your territory, nobody else's.</span></h1>
+        <p class="ez-hero-lead">One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
+        <div class="ez-hero-actions">
+          <button type="button" class="plh-btn" data-booking="">
+            <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
+            <span class="plh-btn__label">${CTA}</span>
+            <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+        </div>
+        <ul class="ez-support">${C.supportLines.map((l) => `<li><i class="fa-solid fa-check"></i>${esc(l)}</li>`).join('')}</ul>
       </div>
-      <ul class="ez-support">${C.supportLines.map((l) => `<li><i class="fa-solid fa-check"></i>${esc(l)}</li>`).join('')}</ul>
-      <div class="ezh2__inline-badges">
-        <a class="ezh2__badge ezh2__badge--inline ezh2__badge--paving" href="#paving-leads">${pavingMark()}<span>For paving contractors <i class="fa-solid fa-arrow-down"></i></span></a>
-        <a class="ezh2__badge ezh2__badge--inline ezh2__badge--roof" href="#roofcoat-leads">${roofcoatMark()}<span>For roof coating contractors <i class="fa-solid fa-arrow-down"></i></span></a>
+      <div class="col-lg-5">
+        <div class="ezh3__mark" aria-hidden="true">
+          <span class="ezh3__glow"></span>
+          <span class="ezh3__ring ezh3__ring--1"></span>
+          <span class="ezh3__ring ezh3__ring--2"><i></i></span>
+          <span class="ezh3__ring ezh3__ring--3"><i></i></span>
+          <img src="${img('ez/logo.svg')}" alt="">
+        </div>
       </div>
     </div>
   </div>
-  <a class="ezh2__badge ezh2__badge--paving" href="#paving-leads">${pavingMark()}<span>For paving contractors <i class="fa-solid fa-arrow-down"></i></span></a>
-  <a class="ezh2__badge ezh2__badge--roof" href="#roofcoat-leads">${roofcoatMark()}<span>For roof coating contractors <i class="fa-solid fa-arrow-down"></i></span></a>
-  <img class="ezh2__mobile-art" src="${img('ez/hero-combined.jpg')}" width="2200" height="821" alt="">
 </section>
 
 ${section(

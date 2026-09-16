@@ -317,49 +317,25 @@ body, .page-wrapper { background: var(--ez-bg); color: var(--ez-muted); }
 .ez-team__roles strong { color: #fff; margin-right: 4px; font-weight: 500; }
 .ez-team--photo p { margin: 0; }
 
-/* ---------- Home hero: the Paving Leads and RoofCoat Leads heroes side by side ----------
-   Artwork is 2200x821, pinned right at a fixed height. Wide screens: copy on the navy left,
-   a floating badge next to each figure. Below 1600px the figures run under the copy, so a
-   navy wash covers the left and the badges move into the copy column. */
-.ezh2 { position: relative; overflow: hidden; display: flex; align-items: center; min-height: 780px; padding: 150px 0 120px; background-color: var(--ez-bg); background-image: linear-gradient(180deg, #001820 0%, rgba(0, 24, 32, 0) 22%), url(../images/ez/hero-combined.jpg); background-repeat: no-repeat; background-position: right bottom, right bottom; background-size: 2200px 700px, auto 700px; }
-.ezh2::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: linear-gradient(0deg, var(--ez-bg), rgba(0, 24, 32, 0)); pointer-events: none; }
-.ezh2__container.container { position: relative; z-index: 2; max-width: none; padding-left: 6.2vw; padding-right: 0; }
-.ezh2__content { max-width: 620px; }
-.ezh2__title { margin: 0 0 22px; color: #fff; font-size: clamp(40px, 3.2vw, 62px); line-height: 1.06; font-weight: 700; }
-.ezh2__title span { display: block; color: var(--ez-primary); font-weight: 400; }
-.ezh2 .ez-hero-lead { font-size: 18px; }
-.ezh2 .plh-btn { margin-left: 0; }
-.ezh2__badge { position: absolute; z-index: 3; bottom: 90px; display: flex; flex-direction: column; gap: 8px; padding: 14px 18px; border-radius: 16px; background: rgba(0, 24, 32, .76); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(86, 203, 250, .35); color: #fff; font-size: 14px; font-weight: 600; transition: border-color .3s; animation: plh-bob 3s ease-in-out infinite; }
-.ezh2__badge:hover { border-color: var(--ez-primary); color: #fff; }
-.ezh2__badge i { color: var(--ez-primary); margin-left: 6px; }
-.ezh2__badge .ez-sub-mark span { font-size: 17px; }
-/* 700/821 scale: paving figure centre ~1006px from the right edge, roofing ~550px */
-.ezh2__badge--paving { right: 1130px; }
-.ezh2__badge--roof { right: 40px; bottom: 150px; animation-delay: 1.5s; }
-.ezh2__inline-badges { display: none; }
-.ezh2__badge--inline { position: static; animation: none; }
-.ezh2__mobile-art { display: none; }
-@media (max-width: 2099.98px) {
-  .ezh2 > .ezh2__badge { display: none; }
-  .ezh2__inline-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-}
-@media (max-width: 1599.98px) {
-  .ezh2 > .ezh2__badge { display: none; }
-  .ezh2__inline-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-  .ezh2 { min-height: 760px; background-size: 1608px 600px, auto 600px; }
-  .ezh2__content { max-width: 520px; }
-  .ezh2__title { font-size: 46px; }
-  .ezh2::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(0, 24, 32, .9) 0%, rgba(0, 24, 32, .7) 36%, rgba(0, 24, 32, 0) 50%); pointer-events: none; }
-}
-@media (max-width: 1199.98px) {
-  .ezh2 { min-height: 800px; }
-  .ezh2::before { background: linear-gradient(90deg, rgba(0, 24, 32, .96) 0%, rgba(0, 24, 32, .88) 48%, rgba(0, 24, 32, .1) 70%); }
-}
-@media (max-width: 991.98px) {
-  .ezh2 { display: block; min-height: 0; padding: 130px 0 0; background: var(--ez-bg); }
-  .ezh2::before, .ezh2::after { display: none; }
-  .ezh2__container.container { max-width: 720px; padding-left: 15px; padding-right: 15px; }
-  .ezh2__content { max-width: none; }
-  .ezh2__mobile-art { display: block; width: 180%; max-width: none; height: auto; margin: 36px 0 0 -64%; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%); mask-image: linear-gradient(180deg, transparent 0%, #000 18%); }
-}
+/* ---------- Home hero: simple copy + animated EZ logo ---------- */
+.ezh3 { position: relative; overflow: hidden; padding: 190px 0 110px; background: radial-gradient(90% 80% at 78% 45%, rgba(24, 184, 248, .16) 0%, rgba(0, 24, 32, 0) 60%), var(--ez-bg); }
+.ezh3__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(86, 203, 250, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(86, 203, 250, .06) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(70% 70% at 75% 50%, #000 0%, transparent 75%); mask-image: radial-gradient(70% 70% at 75% 50%, #000 0%, transparent 75%); pointer-events: none; }
+.ezh3 .container { position: relative; z-index: 2; }
+.ezh3__title { margin: 0 0 24px; color: #fff; font-size: clamp(40px, 4.2vw, 72px); line-height: 1.05; font-weight: 700; }
+.ezh3__title span { display: block; color: var(--ez-primary); font-weight: 400; }
+.ezh3 .plh-btn { margin-left: 0; }
+.ezh3__mark { position: relative; width: min(460px, 100%); aspect-ratio: 1; margin: 0 auto; display: grid; place-items: center; }
+.ezh3__mark img { position: relative; z-index: 2; width: 62%; filter: drop-shadow(0 0 30px rgba(24, 184, 248, .45)); animation: ezh3-float 6s ease-in-out infinite; }
+.ezh3__glow { position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle, rgba(24, 184, 248, .45) 0%, rgba(24, 184, 248, 0) 70%); filter: blur(20px); animation: ezh3-pulse 4s ease-in-out infinite; }
+.ezh3__ring { position: absolute; border-radius: 50%; border: 1px solid rgba(86, 203, 250, .28); }
+.ezh3__ring--1 { inset: 12%; border-style: dashed; animation: ezh3-spin 40s linear infinite; }
+.ezh3__ring--2 { inset: 4%; animation: ezh3-spin 18s linear infinite; }
+.ezh3__ring--3 { inset: -4%; border-color: rgba(86, 203, 250, .14); animation: ezh3-spin 28s linear infinite reverse; }
+.ezh3__ring i { position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--ez-primary); box-shadow: 0 0 14px 4px rgba(24, 184, 248, .6); }
+.ezh3__ring--3 i { width: 8px; height: 8px; margin-left: -4px; top: -4px; background: var(--ez-primary-light); }
+@keyframes ezh3-spin { to { transform: rotate(360deg); } }
+@keyframes ezh3-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes ezh3-pulse { 0%, 100% { opacity: .7; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.04); } }
+@media (prefers-reduced-motion: reduce) { .ezh3__mark *, .ezh3__mark img { animation: none !important; } }
+@media (max-width: 991.98px) { .ezh3 { padding: 140px 0 70px; } .ezh3__mark { width: min(320px, 80%); } }
 @media (max-width: 1299.98px) and (min-width: 768px) { .pl-stat__value { font-size: 40px; } }
