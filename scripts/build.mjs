@@ -335,31 +335,24 @@ pages.push({
   description: site.description,
   schema: [faqSchema(C.homeFaqs)],
   body: `
-<section class="ezh3" aria-label="EZ Marketing">
-  <div class="ezh3__grid" aria-hidden="true"></div>
-  <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-6">
-        <span class="ez-kicker ez-meta-kicker"><img src="${img('ez/meta-logo.png')}" alt="Meta" width="72" height="17"> Ads agency for roofers &amp; pavers</span>
-        <h1 class="ezh3__title">Meta Ads for roofers and pavers. <span>Every lead is yours.</span></h1>
-        <p class="ez-hero-lead">One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
-        <div class="ez-hero-actions">
-          <button type="button" class="plh-btn" data-booking="">
-            <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
-            <span class="plh-btn__label">${CTA}</span>
-            <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
-          </button>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="ezh3__stage">
-          <span class="ezh3__stage-glow" aria-hidden="true"></span>
-          <div class="ezh3__screen">
-            <video src="/assets/videos/ez-hero.mp4" poster="/assets/videos/ez-hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="EZ Marketing 3D logo animation"></video>
-          </div>
-        </div>
-      </div>
+<section class="ezh4" aria-label="EZ Marketing">
+  <div class="ezh4__top">
+    <div class="ezh4__copy">
+      <span class="ez-kicker ez-meta-kicker"><img src="${img('ez/meta-logo.png')}" alt="Meta" width="72" height="17"> Ads agency for roofers &amp; pavers</span>
+      <h1 class="ezh4__title">Meta Ads for roofers and pavers. <span>Every lead is yours.</span></h1>
     </div>
+    <div class="ezh4__side">
+      <p>One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
+      <button type="button" class="plh-btn" data-booking="">
+        <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
+        <span class="plh-btn__label">${CTA}</span>
+        <span class="plh-btn__arrow plh-btn__arrow--right"><i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+    </div>
+  </div>
+  <div class="ezh4__canvas" data-hero3d>
+    <div class="ezh4__fallback" aria-hidden="true"><img src="${img('ez/logo.svg')}" alt=""></div>
+    <span class="ezh4__hint" aria-hidden="true"><i class="fa-solid fa-hand-pointer"></i> Move your cursor through the cubes</span>
   </div>
 </section>
 

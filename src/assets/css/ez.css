@@ -317,31 +317,6 @@ body, .page-wrapper { background: var(--ez-bg); color: var(--ez-muted); }
 .ez-team__roles strong { color: #fff; margin-right: 4px; font-weight: 500; }
 .ez-team--photo p { margin: 0; }
 
-/* ---------- Home hero: simple copy + animated EZ logo ---------- */
-.ezh3 { position: relative; overflow: hidden; padding: 190px 0 110px; background: radial-gradient(90% 80% at 78% 45%, rgba(24, 184, 248, .16) 0%, rgba(0, 24, 32, 0) 60%), var(--ez-bg); }
-.ezh3__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(86, 203, 250, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(86, 203, 250, .06) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(70% 70% at 75% 50%, #000 0%, transparent 75%); mask-image: radial-gradient(70% 70% at 75% 50%, #000 0%, transparent 75%); pointer-events: none; }
-.ezh3 .container { position: relative; z-index: 2; }
-.ezh3__title { margin: 0 0 24px; color: #fff; font-size: clamp(40px, 4.2vw, 72px); line-height: 1.05; font-weight: 700; }
-.ezh3__title span { display: block; color: var(--ez-primary); font-weight: 400; }
-.ezh3 .plh-btn { margin-left: 0; }
-.ezh3__mark { position: relative; width: min(460px, 100%); aspect-ratio: 1; margin: 0 auto; display: grid; place-items: center; }
-.ezh3__mark img { position: relative; z-index: 2; width: 62%; filter: drop-shadow(0 0 30px rgba(24, 184, 248, .45)); animation: ezh3-float 6s ease-in-out infinite; }
-.ezh3__glow { position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle, rgba(24, 184, 248, .45) 0%, rgba(24, 184, 248, 0) 70%); filter: blur(20px); animation: ezh3-pulse 4s ease-in-out infinite; }
-.ezh3__ring { position: absolute; border-radius: 50%; border: 1px solid rgba(86, 203, 250, .28); }
-.ezh3__ring--1 { inset: 12%; border-style: dashed; animation: ezh3-spin 40s linear infinite; }
-.ezh3__ring--2 { inset: 4%; animation: ezh3-spin 18s linear infinite; }
-.ezh3__ring--3 { inset: -4%; border-color: rgba(86, 203, 250, .14); animation: ezh3-spin 28s linear infinite reverse; }
-.ezh3__ring i { position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--ez-primary); box-shadow: 0 0 14px 4px rgba(24, 184, 248, .6); }
-.ezh3__ring--3 i { width: 8px; height: 8px; margin-left: -4px; top: -4px; background: var(--ez-primary-light); }
-@keyframes ezh3-spin { to { transform: rotate(360deg); } }
-@keyframes ezh3-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-@keyframes ezh3-pulse { 0%, 100% { opacity: .7; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.04); } }
-@media (prefers-reduced-motion: reduce) { .ezh3__mark *, .ezh3__mark img { animation: none !important; } }
-@media (max-width: 991.98px) { .ezh3 { padding: 140px 0 70px; } .ezh3__mark { width: min(320px, 80%); } }
-@media (max-width: 1299.98px) and (min-width: 768px) { .pl-stat__value { font-size: 40px; } }
-.col-lg-10.text-center .ez-org { max-width: 720px; margin-left: auto; margin-right: auto; }
-.col-lg-10.text-center .ez-lead-p { max-width: 820px; margin-left: auto; margin-right: auto; }
-
 /* ---------- Typography: Attack across the whole site ---------- */
 @font-face { font-family: "Attack"; src: url(../fonts/attack.woff) format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
 :root { --title-font: "Attack", system-ui, sans-serif; --text-font: "Attack", system-ui, sans-serif; }
@@ -349,22 +324,12 @@ body, button, input, select, textarea, p, li, a, span, h1, h2, h3, h4, h5, h6, .
   font-family: "Attack", system-ui, -apple-system, "Segoe UI", sans-serif !important;
 }
 /* Attack ships one weight: keep headings at 400 so the browser doesn't fake a bold */
-h1, h2, h3, h4, h5, h6, .title, strong, b, .btn-title, .ez-kicker, .pl-stat__value, .ezh3__title, .ez-h2 { font-weight: 400 !important; letter-spacing: 0 !important; }
+h1, h2, h3, h4, h5, h6, .title, strong, b, .btn-title, .ez-kicker, .pl-stat__value, .ezh4__title, .ez-h2 { font-weight: 400 !important; letter-spacing: 0 !important; }
 .fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, .fa-sharp, [class^="fa-"], [class*=" fa-"], .lnr, [class^="lnr-"], [class*=" lnr-"], .icon { font-family: inherit; }
 i.fa-solid, i.fas, i.fa, i.fa-sharp { font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", "Font Awesome 5 Free" !important; font-weight: 900 !important; }
 i.fa-regular, i.far { font-family: "Font Awesome 6 Pro", "Font Awesome 5 Free" !important; font-weight: 400 !important; }
 i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important; font-weight: 400 !important; }
-.ezh3__title { line-height: 1.08; }
-
-/* ---------- Hero: 3D logo animation in a glowing container ---------- */
-.ezh3__stage { position: relative; perspective: 1400px; }
-.ezh3__stage-glow { position: absolute; inset: 8% 6%; border-radius: 40px; background: radial-gradient(circle, rgba(24, 184, 248, .45), rgba(24, 184, 248, 0) 70%); filter: blur(40px); animation: ezh3-pulse 5s ease-in-out infinite; }
-.ezh3__screen { position: relative; border-radius: 28px; overflow: hidden; background: #050b10; border: 1px solid rgba(86, 203, 250, .35); box-shadow: 0 0 0 1px rgba(24, 184, 248, .08), 0 30px 80px rgba(0, 0, 0, .55), 0 0 60px rgba(24, 184, 248, .18); transform: rotateY(-8deg) rotateX(3deg); transition: transform .8s cubic-bezier(.2, .7, .2, 1); animation: ezh3-float 7s ease-in-out infinite; }
-.ezh3__stage:hover .ezh3__screen { transform: rotateY(0) rotateX(0); }
-.ezh3__screen::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(125deg, rgba(255, 255, 255, .08) 0%, rgba(255, 255, 255, 0) 35%); pointer-events: none; }
-.ezh3__screen video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-@media (prefers-reduced-motion: reduce) { .ezh3__screen, .ezh3__stage-glow { animation: none; } }
-@media (max-width: 991.98px) { .ezh3__screen { transform: none; } }
+.ezh4__title { line-height: 1.02; }
 
 /* Inner pages: no hero banner, just clearance for the fixed header */
 .ez-page-top { height: 110px; }
@@ -402,3 +367,24 @@ i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brand
 .ez-company .award-vec, .ez-company .about-shape-1, .ez-company .about-shape-2, .ez-creative .testi-vec, .pl-reels .about-vec { opacity: .75; pointer-events: none; }
 .ez-proof { margin-top: 20px; padding: 70px 0 !important; }
 .ez-panel + .ez-panel { margin-top: 30px; }
+
+/* ---------- Home hero: H2H-style interactive 3D cubes in a rounded container ---------- */
+.ezh4 { display: grid; grid-template-rows: auto 1fr; gap: clamp(20px, 3vw, 44px); height: max(720px, calc(100vh + 30px)); padding: 130px clamp(16px, 4vw, 64px) clamp(16px, 3vw, 40px); background: var(--ez-bg); box-sizing: border-box; }
+.ezh4__top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px 60px; align-items: end; }
+.ezh4__title { margin: 14px 0 0; color: #fff; font-size: clamp(36px, 4.6vw, 80px); line-height: 1.02; }
+.ezh4__title span { color: var(--ez-primary); }
+.ezh4__side p { max-width: 460px; margin: 0 0 22px; color: rgba(248, 248, 248, .82); font-size: 18px; line-height: 1.6; }
+.ezh4 .plh-btn { margin: 0; }
+.ezh4__canvas { position: relative; min-height: 320px; border-radius: clamp(14px, 2vw, 24px); overflow: hidden; background: #041d27; border: 1px solid var(--ez-border); box-shadow: 0 0 60px rgba(24, 184, 248, .12); }
+.ezh4__canvas canvas { position: absolute; inset: 0; }
+.ezh4__fallback { position: absolute; inset: 0; display: grid; place-items: center; transition: opacity .6s; }
+.ezh4__fallback img { width: min(220px, 40%); filter: drop-shadow(0 0 30px rgba(24, 184, 248, .45)); }
+.ezh4__canvas.is-ready .ezh4__fallback { opacity: 0; pointer-events: none; }
+.ezh4__hint { position: absolute; left: 50%; bottom: 16px; z-index: 2; transform: translateX(-50%); padding: 7px 14px; border-radius: 30px; background: rgba(0, 24, 32, .7); border: 1px solid var(--ez-border); color: var(--ez-muted); font-size: 13px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .6s .8s; }
+.ezh4__canvas.is-ready .ezh4__hint { opacity: 1; }
+@media (hover: none) { .ezh4__hint { display: none; } }
+@media (max-width: 991.98px) {
+  .ezh4 { height: auto; min-height: 0; padding-top: 110px; }
+  .ezh4__top { grid-template-columns: 1fr; }
+  .ezh4__canvas { height: 62vh; min-height: 380px; }
+}
