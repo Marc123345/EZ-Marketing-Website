@@ -343,7 +343,6 @@ ${bookingModal()}
   <script src="${v('/assets/js/script.js')}"></script>
   <script src="${v('/assets/js/pl.js')}" data-gsap-src="${v('/assets/js/script-gsap.js')}"></script>
   <script src="${v('/assets/js/ez.js')}"></script>
-  ${path === '/' ? `<script src="${v('/assets/js/hero3d.js')}" defer></script>` : ''}
 </body>
 </html>
 `

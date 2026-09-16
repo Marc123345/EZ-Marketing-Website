@@ -333,14 +333,20 @@ pages.push({
   description: site.description,
   schema: [faqSchema(C.homeFaqs)],
   body: `
-<section class="ezh4" aria-label="EZ Marketing">
-  <div class="ezh4__top">
-    <div class="ezh4__copy">
-      <span class="ez-kicker ez-meta-kicker"><img src="${img('ez/meta-logo.png')}" alt="Meta" width="72" height="17"> Ads agency for roofers &amp; pavers</span>
-      <h1 class="ezh4__title">Meta Ads for roofers and pavers. <span>Every lead is yours.</span></h1>
-    </div>
-    <div class="ezh4__side">
-      <p>One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors.</p>
+<section class="plh" aria-label="EZ Marketing">
+  <div class="container plh__container">
+    <div class="plh__content">
+      <h1 class="plh__title">Meta Ads for <span>roofers and</span> pavers</h1>
+      <div class="plh__icon-bx">
+        <div class="plh__badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="plh__badge-ring">
+            <defs><path id="plh-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text><textPath href="#plh-circle" startOffset="0" textLength="286" lengthAdjust="spacing">EXCLUSIVE LEADS &#8226; ROOFING &amp; PAVING &#8226;</textPath></text>
+          </svg>
+          <span class="plh__badge-core"><i class="fa-solid fa-arrow-up-right"></i></span>
+        </div>
+        <p>One agency, two companies: RoofCoat Leads for coating roofers and Paving Leads for paving contractors. Every lead is yours.</p>
+      </div>
       <button type="button" class="plh-btn" data-booking="">
         <span class="plh-btn__arrow plh-btn__arrow--left"><i class="fa-solid fa-arrow-right"></i></span>
         <span class="plh-btn__label">${CTA}</span>
@@ -348,10 +354,12 @@ pages.push({
       </button>
     </div>
   </div>
-  <div class="ezh4__canvas" data-hero3d>
-    <div class="ezh4__fallback" aria-hidden="true"><img src="${img('ez/logo.svg')}" alt=""></div>
-    <span class="ezh4__hint" aria-hidden="true"><i class="fa-solid fa-hand-pointer"></i> Grab and drag the cubes</span>
+  <div class="plh__campaign" aria-hidden="true"><span>Paid Campaigns</span></div>
+  <div class="plh__marketing" aria-hidden="true">
+    <div class="plh__marketing-icon"><i class="fa-solid fa-bullhorn"></i></div>
+    <h6>Meta Ads for Roofing &amp; Paving</h6>
   </div>
+  <img class="plh__mobile-art" src="${img('paving/hero-bg.jpg')}" width="1916" height="821" alt="">
 </section>
 
 ${videoSection([...C.roofing.videos, ...C.paving.videos], { sub: 'Testimonials', title: ['Real Contractors.', 'Real Jobs.'], intro: 'Coating roofers and paving contractors running jobs from our campaigns.' })}
