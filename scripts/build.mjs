@@ -350,7 +350,7 @@ pages.push({
   </div>
   <div class="ezh4__canvas" data-hero3d>
     <div class="ezh4__fallback" aria-hidden="true"><img src="${img('ez/logo.svg')}" alt=""></div>
-    <span class="ezh4__hint" aria-hidden="true"><i class="fa-solid fa-hand-pointer"></i> Move your cursor through the cubes</span>
+    <span class="ezh4__hint" aria-hidden="true"><i class="fa-solid fa-hand-pointer"></i> Grab and drag the cubes</span>
   </div>
 </section>
 
