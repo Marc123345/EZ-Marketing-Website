@@ -285,21 +285,33 @@ function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, 
 }
 
 function teamGrid() {
+  const cr = C.about.creative;
   return `
     <div class="row g-4 justify-content-center">
       ${C.about.team
         .map(
           (m, i) => `
       <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay="${delay(i)}">
-        <div class="ez-team">
-          <span class="ez-team__avatar">${esc(m.name.split(' ').map((n) => n[0]).join(''))}</span>
-          <h4>${esc(m.name)}</h4>
-          <p class="ez-team__role">${esc(m.title)}</p>
-          ${m.bio ? `<p>${esc(m.bio)}</p>` : ''}
+        <div class="ez-team ez-team--photo">
+          <div class="ez-team__photo"><img src="${m.photo}" alt="${esc(m.name)}" loading="lazy"></div>
+          <div class="ez-team__body">
+            <h4>${esc(m.name)}</h4>
+            <p class="ez-team__role">${esc(m.title)}</p>
+          </div>
         </div>
       </div>`
         )
         .join('')}
+      <div class="col-xl-6 col-md-12 wow fadeInUp" data-wow-delay=".5s">
+        <div class="ez-team ez-team--photo ez-team--wide">
+          <div class="ez-team__photo"><img src="${cr.photo}" alt="${esc(cr.names)}" loading="lazy"></div>
+          <div class="ez-team__body">
+            <h4>${esc(cr.names)}</h4>
+            <div class="ez-team__roles">${cr.roles.map((r) => `<span><strong>${esc(r.name)}</strong> ${esc(r.title)}</span>`).join('')}</div>
+            <p>${esc(cr.text)}</p>
+          </div>
+        </div>
+      </div>
     </div>`;
 }
 
@@ -628,7 +640,7 @@ ${section(
   { cls: 'ez-band' }
 )}
 ${videoSection(C.paving.videos, { sub: 'Paving', title: ['Paving Crews', 'on the System'], id: 'paving' })}
-${writtenSlider(C.paving.written, { sub: 'Paving Testimonials', title: ['In Their', 'Own Words'] })}`,
+${writtenSlider(C.paving.written, { sub: 'Paving Testimonials', title: ['What Paving Contractors', 'Say'] })}`,
 });
 
 // 10. Contact

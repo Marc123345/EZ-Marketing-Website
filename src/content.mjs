@@ -217,11 +217,19 @@ export const about = {
     { title: 'We know the buyer', text: 'An owner-operator with a crew, a truck and a territory, burned by shared leads. We build everything around what he needs.' },
     { title: 'We know what works', text: 'Every campaign in your trade teaches us something. You get the playbook, not a test run on your budget.' },
   ],
+  // Photos: Marc and Ezra are cropped from the RoofCoat Leads and Paving Leads hero images.
   team: [
-    { name: 'Ezra', title: 'Founder & CEO' },
-    { name: 'Marc Friedman', title: 'Website Designer & Head of Sales, RoofCoat Leads' },
-    { name: 'Dani Twillo', title: 'Head of Creative' },
-    { name: 'Yael Rubinson', title: 'Creative Director' },
+    { name: 'Ezra', title: 'Founder & CEO', photo: '/assets/images/team/ezra.jpg' },
+    { name: 'Marc Friedman', title: 'Website Designer & Head of Sales, RoofCoat Leads', photo: '/assets/images/team/marc-friedman.jpg' },
   ],
+  creative: {
+    names: 'Dani Twillo & Yael Rubinson',
+    roles: [
+      { name: 'Dani Twillo', title: 'Head of Creative' },
+      { name: 'Yael Rubinson', title: 'Creative Director' },
+    ],
+    text: 'Our creative team builds the ads for both companies, from roof coating jobs to fresh asphalt.',
+    photo: '/assets/images/team/dani-yael.jpg',
+  },
   quote: { text: "Ezra's team really understands our business—they're not just general marketers. They get the grit.", name: 'Yankee', company: 'Pave n Save' },
 };

@@ -329,3 +329,16 @@ body, .page-wrapper { background: var(--ez-bg); color: var(--ez-muted); }
 #team { scroll-margin-top: 90px; }
 .ez-company { scroll-margin-top: 80px; }
 .ez-company__actions .btn-title { text-transform: none; }
+
+/* Team photo cards */
+.ez-team--photo { display: flex; flex-direction: column; padding: 0; overflow: hidden; text-align: left; }
+.ez-team__photo { position: relative; overflow: hidden; }
+.ez-team__photo img { width: 100%; aspect-ratio: 1 / 1.05; object-fit: cover; object-position: center top; display: block; transition: transform .5s; }
+.ez-team--photo:hover .ez-team__photo img { transform: scale(1.04); }
+.ez-team__body { padding: 20px 22px 24px; }
+.ez-team--wide .ez-team__photo img { aspect-ratio: auto; height: 100%; min-height: 0; max-height: 330px; object-position: center 30%; }
+.ez-team--wide { height: 100%; }
+.ez-team__roles { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 4px 0 10px; }
+.ez-team__roles span { color: var(--ez-primary); font-size: 15px; font-weight: 600; }
+.ez-team__roles strong { color: #fff; margin-right: 4px; font-weight: 500; }
+.ez-team--photo p { margin: 0; }
