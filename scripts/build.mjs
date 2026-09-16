@@ -421,29 +421,6 @@ ${companySection({
   reverse: true,
 })}
 
-<section class="feature-section section-padding">
-  <div class="container">
-    <div class="row g-4 align-items-stretch">
-      <div class="col-lg-6 wow fadeInUp">
-        <div class="feature-box-style1 style-2 ez-h100">
-          ${subTitle('Why Only Two Trades')}
-          ${secTitle('Other Agencies Sell Activity.', 'We Sell Jobs.')}
-          <ul class="pl-them">
-            ${C.agencyVsUs.them.map((t) => `<li><i class="fa-solid fa-minus"></i><div><strong>${esc(t.text)}</strong><span>${esc(t.sub)}</span></div></li>`).join('')}
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-        <div class="ez-promise ez-h100">
-          <p class="ez-promise__big">${esc(C.agencyVsUs.us)}</p>
-          <p>We only work with coating roofers and paving contractors. We know the jobs, the seasons and the buyers, so every campaign starts from a playbook that already works in the trade.</p>
-          ${bookBtn(CTA)}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 ${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You Run the Crew.'], intro: 'The same Meta Ads system runs behind RoofCoat Leads and Paving Leads.' })}
 
 

@@ -53,16 +53,6 @@ export const homeStats = [
   { value: '100%', label: 'Exclusive leads' },
 ];
 
-export const agencyVsUs = {
-  them: [
-    { text: 'Posts and "brand awareness"', sub: 'Activity you can report on, not jobs you can book' },
-    { text: 'Monthly reports', sub: 'Charts about impressions while the phone stays quiet' },
-    { text: 'Six months to "optimize"', sub: 'Your season is over before the campaign works' },
-    { text: 'Shared leads', sub: 'The same homeowner called by five other contractors' },
-  ],
-  us: 'Our contractors buy one thing: the phone ringing with real jobs in their territory. That is the only thing we sell.',
-};
-
 export const method = [
   {
     title: 'Creative from real job sites',
