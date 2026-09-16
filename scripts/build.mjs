@@ -328,6 +328,10 @@ pages.push({
   </div>
 </section>
 
+${videoSection([...C.roofing.videos, ...C.paving.videos], { sub: 'Testimonials', title: ['Real Contractors.', 'Real Jobs.'], intro: 'Coating roofers and paving contractors running jobs from our campaigns.' })}
+
+${writtenSlider(C.paving.written, { sub: 'In Writing', title: ['What Contractors', 'Say About Us'] })}
+
 ${section(
   `
     ${statsRow(C.homeStats, 'mt-0 ez-stats-top')}
@@ -338,10 +342,7 @@ ${section(
 ${section(
   `
     <div class="row g-5 align-items-center">
-      <div class="col-lg-5 wow fadeInUp">
-        <div class="ez-about-logo"><img src="${img('ez/logo.svg')}" alt="EZ Marketing logo"></div>
-      </div>
-      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".2s">
+      <div class="col-lg-10 mx-auto text-center wow fadeInUp">
         ${subTitle('Who We Are')}
         ${secTitle('One Agency.', 'Two Trades.')}
         <p class="ez-lead-p">${esc(C.about.story[0])}</p>
@@ -404,7 +405,6 @@ ${companySection({
       </div>
       <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
         <div class="ez-promise ez-h100">
-          <img src="${img('ez/logo.svg')}" alt="" width="96" height="96">
           <p class="ez-promise__big">${esc(C.agencyVsUs.us)}</p>
           <p>We only work with coating roofers and paving contractors. We know the jobs, the seasons and the buyers, so every campaign starts from a playbook that already works in the trade.</p>
           ${bookBtn(CTA)}
@@ -416,7 +416,6 @@ ${companySection({
 
 ${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You Run the Crew.'], intro: 'The same Facebook Ads system runs behind RoofCoat Leads and Paving Leads.' })}
 
-${videoSection([C.roofing.videos[0], C.roofing.videos[1], C.paving.videos[0], C.paving.videos[2]], { sub: 'Proof From the Field', title: ['Real Contractors.', 'Real Jobs.'], intro: 'Contractors from both companies, running jobs from our campaigns.' })}
 
 ${section(`
     ${heading('The Team', ['The People Behind', 'EZ Marketing'])}
