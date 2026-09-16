@@ -266,7 +266,7 @@ body, .page-wrapper { background: var(--ez-bg); color: var(--ez-muted); }
 
 
 /* Template section artwork is charcoal: tint it into the navy palette */
-.work-process-inner-2, .faq-inner-2, .testimonial-inner-2, .service-section-2, .footer-section .foorer-area { background-color: #062A36 !important; background-blend-mode: luminosity; }
+
 .faq-block-two .title-box, .faq-block-two .content-box { background-color: var(--ez-bg); }
 
 .ez-book__choice strong, .ez-contact-card__info strong { color: #fff !important; }
@@ -394,3 +394,11 @@ i.fa-brands, i.fab { font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brand
 .ez-creative .ez-checks li { color: var(--ez-muted); font-size: 16px; }
 .ez-creative .ez-checks strong { color: #fff; }
 @media (max-width: 575.98px) { .ez-creative__names { position: static; grid-template-columns: 1fr; padding: 12px; background: var(--ez-bg-light); } }
+
+/* Patterned panels (template service-section look) and decoration stacking */
+.ez-panel { position: relative; background-size: cover; background-position: center; border-radius: 40px; }
+.ez-panel > .container, .ez-company > .container, .ez-creative > .container, .pl-reels > .container { position: relative; z-index: 5; }
+.ez-company, .ez-creative, .pl-reels { position: relative; overflow: hidden; }
+.ez-company .award-vec, .ez-company .about-shape-1, .ez-company .about-shape-2, .ez-creative .testi-vec, .pl-reels .about-vec { opacity: .75; pointer-events: none; }
+.ez-proof { margin-top: 20px; padding: 70px 0 !important; }
+.ez-panel + .ez-panel { margin-top: 30px; }

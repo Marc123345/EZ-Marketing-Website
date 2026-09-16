@@ -188,23 +188,23 @@ export const about = {
     'We built RoofCoat Leads and Paving Leads as dedicated systems for each trade, with their own campaigns, their own sites and their own proof. Over 100 contractors across the US have run on them.',
   ],
   creative: {
-    title: ['The Creative Team', 'Behind Every Ad'],
-    text: 'Dani Twillo, our Head of Creative, and Yael Rubinson, our Creative Director, run creative for RoofCoat Leads and Paving Leads. Every ad a contractor runs with us comes through their team.',
+    title: ['The Paid Media Team', 'Behind Every Campaign'],
+    text: 'Dani Twillo, our Head of Paid Media, owns the ad operation end to end: strategy, creative, budgets and results. Yael Rubinson, our Paid Media Manager, builds, tests and optimizes the campaigns day to day. Every RoofCoat Leads and Paving Leads campaign runs through them.',
     points: [
-      { title: 'Built from real job sites', text: 'Short videos and photos of real coating and paving work, the way property owners actually see it.' },
-      { title: 'Made for each trade', text: 'Roof coating ads speak to building owners with aging roofs. Paving ads speak to homeowners and property managers with worn asphalt.' },
-      { title: 'Refreshed through the season', text: 'Creative is tested and updated as campaigns run, so ads stay fresh while the leads keep coming.' },
+      { title: 'Strategy and budgets', text: 'Each campaign is planned around the trade, the service area and a budget that makes sense for the contractor.' },
+      { title: 'Creative for each trade', text: 'Roof coating ads speak to building owners with aging roofs. Paving ads speak to homeowners and property managers with worn asphalt.' },
+      { title: 'Tested and optimized daily', text: 'Ads, audiences and forms are tested and adjusted as campaigns run, so results hold up through the season.' },
     ],
     people: [
-      { name: 'Dani Twillo', title: 'Head of Creative' },
-      { name: 'Yael Rubinson', title: 'Creative Director' },
+      { name: 'Dani Twillo', title: 'Head of Paid Media' },
+      { name: 'Yael Rubinson', title: 'Paid Media Manager' },
     ],
     photo: '/assets/images/team/creative-team.jpg',
   },
   team: [
     { name: 'Ezra', title: 'Founder & CEO', photo: '/assets/images/team/ezra.jpg' },
     { name: 'Marc Friedman', title: 'Head of Sales', photo: '/assets/images/team/marc-friedman.jpg' },
-    { name: 'Dani Twillo', title: 'Head of Creative', photo: '/assets/images/team/dani-twillo.jpg' },
-    { name: 'Yael Rubinson', title: 'Creative Director', photo: '/assets/images/team/yael-rubinson.jpg' },
+    { name: 'Dani Twillo', title: 'Head of Paid Media', photo: '/assets/images/team/dani-twillo.jpg' },
+    { name: 'Yael Rubinson', title: 'Paid Media Manager', photo: '/assets/images/team/yael-rubinson.jpg' },
   ],
 };

@@ -23,6 +23,16 @@ const faqSchema = (items) => ({
 
 // ---------- shared sections ----------
 
+// The template's floating 3D shapes and soft lights. Each set uses the template's own
+// section classes, so positions and slow rotation come from style.css.
+const decor = {
+  about2: `<div class="about-light"><img src="${img('icons/about-light-2-1.png')}" alt=""></div><div class="about-vec tm-gsap-animate-circle"><img src="${img('icons/about-object-2-1.png')}" alt=""></div>`,
+  about1: `<div class="light-shape-1"><img src="${img('icons/about-light-1-1.png')}" alt=""></div><div class="about-shape-1 tm-gsap-animate-circle"><img src="${img('icons/about-shape-1-1.png')}" alt=""></div><div class="light-shape-2"><img src="${img('icons/about-light-1-2.png')}" alt=""></div><div class="about-shape-2 tm-gsap-animate-circle"><img src="${img('icons/about-shape-1-2.png')}" alt=""></div>`,
+  award: `<div class="award-light"><img src="${img('icons/award-light-2-1.png')}" alt=""></div><div class="award-vec tm-gsap-animate-circle"><img src="${img('icons/award-vec-2-1.png')}" alt=""></div>`,
+  testi: `<div class="testimonial-light d-none d-xxl-block"><img src="${img('icons/testimonial-light-4-1.png')}" alt=""></div><div class="testi-vec tm-gsap-animate-circle d-none d-xxl-block"><img src="${img('icons/testi-vec.png')}" alt=""></div>`,
+};
+
+
 function statsRow(items, cls = '') {
   return `
 <div class="pl-stats ${cls}">
@@ -30,9 +40,10 @@ function statsRow(items, cls = '') {
 </div>`;
 }
 
-function section(inner, { cls = '', id = '', bg = '' } = {}) {
+function section(inner, { cls = '', id = '', bg = '', deco = '' } = {}) {
   return `
-<section class="section-padding ${cls}"${id ? ` id="${id}"` : ''}${bg ? ` style="background-image: url('${bg}');"` : ''}>
+<section class="section-padding ${cls}${bg ? ' bg-cover' : ''}"${id ? ` id="${id}"` : ''}${bg ? ` style="background-image: url('${bg}');"` : ''}>
+  ${deco}
   <div class="container">
 ${inner}
   </div>
@@ -68,7 +79,8 @@ function cardGrid(items, { cols = 'col-xl-4 col-lg-6 col-md-6', numbered = true 
 
 function videoSection(videos, { sub = 'Video Testimonials', title = ['Hear It From', 'The Contractors'], intro = '', id = 'testimonials' } = {}) {
   return `
-<section class="pl-reels section-padding" id="${id}">
+<section class="pl-reels about-section-2 fix section-padding" id="${id}">
+  ${decor.about2}
   <div class="container">
     ${heading(sub, [title[0] + ' <br>', title[1]], intro)}
     <div class="row g-4">
@@ -198,7 +210,7 @@ function methodSteps(items, { sub = 'How It Works', title = ['The System Behind'
 <section class="work-process-section-2">
   <div class="work-process-light"><img src="${img('icons/work-process-light-2-1.png')}" alt=""></div>
   <div class="work-process-vec tm-gsap-animate-circle"><img src="${img('icons/work-process-vec2-1.png')}" alt=""></div>
-  <div class="work-process-inner-2 section-padding bg-cover" style="background-image: url('${img('background/work-process-bg-2-1.jpg')}');">
+  <div class="work-process-inner-2 section-padding bg-cover" style="background-image: url('${img('background/faq-bg-2-1.jpg')}');">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-8 col-lg-10">
@@ -236,7 +248,8 @@ function methodSteps(items, { sub = 'How It Works', title = ['The System Behind'
 // One sub-company, explained on the home page and linked out to its own website.
 function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, get, stats, statsNote = '', quote, url, host, reverse = false }) {
   return `
-<section class="section-padding ez-company" id="${id}">
+<section class="section-padding ez-company ${reverse ? 'about-section' : 'award-section-2'}" id="${id}">
+  ${reverse ? decor.about1 : decor.award}
   <div class="container">
     <div class="row g-5 align-items-center${reverse ? ' flex-lg-row-reverse' : ''}">
       <div class="col-lg-6 wow fadeInUp">
@@ -269,7 +282,8 @@ function companySection({ id, mark, kicker, title, intro, photo, photoAlt, who, 
 function creativeSection() {
   const c = C.about.creative;
   return `
-<section class="section-padding ez-creative">
+<section class="section-padding ez-creative tetsimonial-section-4 fix">
+  ${decor.testi}
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6 wow fadeInUp">
@@ -279,7 +293,7 @@ function creativeSection() {
         </div>
       </div>
       <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-        ${subTitle('Creative')}
+        ${subTitle('Paid Media')}
         ${secTitle(c.title[0], c.title[1])}
         <p class="ez-lead-p">${esc(c.text)}</p>
         <ul class="ez-checks">${c.points.map((pt) => `<li><i class="fa-solid fa-circle-check"></i><span><strong>${esc(pt.title)}.</strong> ${esc(pt.text)}</span></li>`).join('')}</ul>
@@ -356,7 +370,7 @@ ${section(
   `
     ${statsRow(C.homeStats, 'mt-0 ez-stats-top')}
     ${disclaimer(DISCLAIMER, 'ez-disclaimer--center')}`,
-  { cls: 'pt-0 ez-proof' }
+  { cls: 'service-section ez-panel ez-proof', bg: img('background/service-bg-1-1.jpg') }
 )}
 
 ${section(
@@ -384,7 +398,7 @@ ${section(
         ${btn('Meet our leadership', { href: '/about#team' })}
       </div>
     </div>`,
-  { cls: 'ez-band' }
+  { cls: 'service-section-2 ez-panel', bg: img('background/service-bg-2-1.jpg') }
 )}
 
 ${companySection({
@@ -427,7 +441,7 @@ ${methodSteps(C.method, { sub: 'How It Works', title: ['We Run the Ads.', 'You R
 ${section(`
     ${heading('Leadership', ['The People Behind', 'EZ Marketing'])}
     ${teamGrid()}
-    <div class="text-center mt-5">${btn('About EZ Marketing', { href: '/about' })}</div>`)}
+    <div class="text-center mt-5">${btn('About EZ Marketing', { href: '/about' })}</div>`, { cls: 'service-section ez-panel', bg: img('background/service-bg-2-1.jpg') })}
 
 ${creativeSection()}
 
@@ -464,7 +478,7 @@ ${section(
   `
     ${heading('Leadership', ['The People Behind', 'Your Campaigns'])}
     ${teamGrid()}`,
-  { id: 'team', cls: 'ez-band' }
+  { id: 'team', cls: 'service-section ez-panel', bg: img('background/service-bg-2-1.jpg') }
 )}
 
 ${creativeSection()}
